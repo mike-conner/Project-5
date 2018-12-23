@@ -14,7 +14,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project_5" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EntrantRegistrationVC" id="BYZ-38-t0r" customClass="ViewController" customModule="Project_5" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -399,11 +399,27 @@
                         <outlet property="stateTextField" destination="41r-5f-RWy" id="IrZ-Fh-Bty"/>
                         <outlet property="streetAddressTextField" destination="f93-Ok-qJw" id="vHM-ZS-pPY"/>
                         <outlet property="zipCodeTextField" destination="B78-i3-u3d" id="md4-Pp-RBz"/>
+                        <segue destination="Zoj-mM-QC4" kind="presentation" identifier="entrantPassSeque" id="nyl-rB-P8K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.41007194244605" y="133.81294964028777"/>
+        </scene>
+        <!--Entrant Pass View Controller-->
+        <scene sceneID="Kxi-Hp-pu0">
+            <objects>
+                <viewController storyboardIdentifier="EntrantPassVC" id="Zoj-mM-QC4" customClass="EntrantPassViewController" customModule="Project_5" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xHY-wy-7I5">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="XyB-r7-bJu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N9H-WV-7MK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="924" y="134"/>
         </scene>
     </scenes>
 </document>

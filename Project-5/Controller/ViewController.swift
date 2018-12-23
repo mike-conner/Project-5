@@ -138,6 +138,8 @@ class ViewController: UIViewController {
         }
         let entrantPass = Pass(visitor: newVisitor)
         
+        performSegue(withIdentifier: "entrantPassSeque", sender: self)
+        
     }
     
     func clearAllRegistrationFields() {
@@ -152,7 +154,6 @@ class ViewController: UIViewController {
         stateTextField.text = ""
         zipCodeTextField.text = ""
     }
-    
     
     func setUpRegistrationFields() {
         let entrantType: String = String(entrantTypeIndex) + String(entrantSubTypeIndex)
@@ -267,7 +268,6 @@ class ViewController: UIViewController {
             break
         }
     }
-    
     
 }
 
