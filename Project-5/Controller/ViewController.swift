@@ -60,6 +60,7 @@ class ViewController: UIViewController {
             entrantSubTypeSegmentedControl.insertSegment(withTitle: "Free Child", at: 2, animated: false)
             entrantSubTypeSegmentedControl.insertSegment(withTitle: "Season", at: 3, animated: false)
             entrantSubTypeSegmentedControl.insertSegment(withTitle: "Senior", at: 4, animated: false)
+            entrantSubTypeSegmentedControl.selectedSegmentIndex = 0
         case 1:
             entrantSubTypeSegmentedControl.isHidden = false
             entrantSubTypeSegmentedControl.removeAllSegments()
@@ -67,7 +68,15 @@ class ViewController: UIViewController {
             entrantSubTypeSegmentedControl.insertSegment(withTitle: "Ride Services", at: 1, animated: false)
             entrantSubTypeSegmentedControl.insertSegment(withTitle: "Maintenance", at: 2, animated: false)
             entrantSubTypeSegmentedControl.insertSegment(withTitle: "Contract", at: 3, animated: false)
-        case 2, 3:
+            entrantSubTypeSegmentedControl.selectedSegmentIndex = 0
+        case 2:
+            entrantSubTypeSegmentedControl.isHidden = false
+            entrantSubTypeSegmentedControl.removeAllSegments()
+            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Shift Manager", at: 0, animated: false)
+            entrantSubTypeSegmentedControl.insertSegment(withTitle: "General Manager", at: 1, animated: false)
+            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Senior Manager", at: 2, animated: false)
+            entrantSubTypeSegmentedControl.selectedSegmentIndex = 0
+        case 3:
             entrantSubTypeSegmentedControl.removeAllSegments()
             entrantSubTypeSegmentedControl.isHidden = true
             entrantSubTypeIndex = 0
@@ -82,6 +91,53 @@ class ViewController: UIViewController {
         entrantSubTypeIndex = entrantSubTypeSegmentedControl.selectedSegmentIndex
         setUpRegistrationFields()
         clearAllRegistrationFields()
+    }
+    
+    @IBAction func generatePassButton(_ sender: Any) {
+        let entrantType: String = String(entrantTypeIndex) + String(entrantSubTypeIndex)
+        
+        switch entrantType {
+        case "00", "01":
+            if entrantType == "01" { newVisitor.entrantType = .classicGuest }
+            else { newVisitor.entrantType = .vipGuest }
+        case "02":
+            newVisitor.entrantType = .freeChildGuest
+            if let userEnteredDateOfBirth = dateOfBirthtTextField.text { newVisitor.personalInformation[.dateOfBirth] = userEnteredDateOfBirth }
+        case "03", "10", "11", "12", "13", "20":
+            if entrantType == "03" { newVisitor.entrantType = .season }
+            else if entrantType == "10" { newVisitor.entrantType = .foodServices }
+            else if entrantType == "11" { newVisitor.entrantType = .rideServices }
+            else if entrantType == "12" { newVisitor.entrantType = .maintenance }
+            else if entrantType == "13" { newVisitor.entrantType = .manager }
+            else { newVisitor.entrantType = .vipGuest }
+            if let userEnteredDateOfBirth = dateOfBirthtTextField.text { newVisitor.personalInformation[.dateOfBirth] = userEnteredDateOfBirth }
+            if let userEnteredSSN = SSNTextField.text { newVisitor.personalInformation[.SSN] = userEnteredSSN }
+            if let userEnteredFirstName = firstnameTextField.text { newVisitor.personalInformation[.firstName] = userEnteredFirstName }
+            if let userEnteredLastName = lastNameTextField.text { newVisitor.personalInformation[.lastName] = userEnteredLastName }
+            if let userEnteredStreetAddress = streetAddressTextField.text { newVisitor.personalInformation[.streetAddress] = userEnteredStreetAddress }
+            if let userEnteredCity = cityTextField.text { newVisitor.personalInformation[.city] = userEnteredCity }
+            if let userEnteredState = stateTextField.text { newVisitor.personalInformation[.state] = userEnteredState }
+            if let userEnteredZipCode = zipCodeTextField.text { newVisitor.personalInformation[.zipCode] = userEnteredZipCode }
+        case "04":
+            newVisitor.entrantType = .senior
+            if let userEnteredDateOfBirth = dateOfBirthtTextField.text { newVisitor.personalInformation[.dateOfBirth] = userEnteredDateOfBirth }
+            if let userEnteredFirstName = firstnameTextField.text { newVisitor.personalInformation[.firstName] = userEnteredFirstName }
+            if let userEnteredLastName = lastNameTextField.text { newVisitor.personalInformation[.lastName] = userEnteredLastName }
+        case "30":
+            newVisitor.entrantType = .vendor
+            if let userEnteredDateOfBirth = dateOfBirthtTextField.text { newVisitor.personalInformation[.dateOfBirth] = userEnteredDateOfBirth }
+            if let userEnteredCompany = companyTextField.text { newVisitor.personalInformation[.company] = userEnteredCompany }
+            if let userEnteredFirstName = firstnameTextField.text { newVisitor.personalInformation[.firstName] = userEnteredFirstName }
+            if let userEnteredLastName = lastNameTextField.text { newVisitor.personalInformation[.lastName] = userEnteredLastName }
+        default:
+        break
+        }
+        
+        if (try? newVisitor.checkRegistrationForErrors(visitor: newVisitor)) == false {
+            return
+        }
+        let entrantPass = Pass(visitor: newVisitor)
+        
     }
     
     func clearAllRegistrationFields() {
@@ -144,7 +200,7 @@ class ViewController: UIViewController {
             cityTextField.backgroundColor = UIColor.init(red: 0.858, green: 0.839, blue: 0.874, alpha: 1)
             stateTextField.backgroundColor = UIColor.init(red: 0.858, green: 0.839, blue: 0.874, alpha: 1)
             zipCodeTextField.backgroundColor = UIColor.init(red: 0.858, green: 0.839, blue: 0.874, alpha: 1)
-        case "03", "10", "11", "12", "13", "20":
+        case "03", "10", "11", "12", "13", "20", "21", "22":
             dateOfBirthtTextField.isEnabled = true
             SSNTextField.isEnabled = true
             projectNumberTextField.isEnabled = false

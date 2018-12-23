@@ -72,6 +72,16 @@ class Pass {
             areaAccess.append(.maintenanceArea)
             rideAccess.append(.canNotSkipLines)
             discount = [.food: 15, .merchandise: 25]
+        case .contract:
+            areaAccess.append(.amusementArea)
+            areaAccess.append(.kitchenArea)
+            rideAccess.append(.canNotSkipLines)
+            discount = [.food: 0, .merchandise: 0]
+        case .vendor:
+            areaAccess.append(.amusementArea)
+            areaAccess.append(.kitchenArea)
+            rideAccess.append(.canNotSkipLines)
+            discount = [.food: 0, .merchandise: 0]
         case .manager:
             areaAccess.append(.amusementArea)
             areaAccess.append(.kitchenArea)
@@ -80,6 +90,14 @@ class Pass {
             areaAccess.append(.officeArea)
             rideAccess.append(.canNotSkipLines)
             discount = [.food: 25, .merchandise: 25]
+        case .season:
+            areaAccess.append(.amusementArea)
+            rideAccess.append(.canSkipLines)
+            discount = [.food: 10, .merchandise: 20]
+        case .senior:
+            areaAccess.append(.amusementArea)
+            rideAccess.append(.canSkipLines)
+            discount = [.food: 10, .merchandise: 10]
         }
     }
 }

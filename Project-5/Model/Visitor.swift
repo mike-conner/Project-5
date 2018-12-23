@@ -12,10 +12,14 @@ enum EntrantType {
     case classicGuest
     case vipGuest
     case freeChildGuest
+    case season
+    case senior
     case foodServices
     case rideServices
     case maintenance
+    case contract
     case manager
+    case vendor
 }
 
 // List the personal information that may be asked on the registration form.
@@ -29,6 +33,7 @@ enum PersonalInformation {
     case zipCode
     case SSN
     case dateOfBirth
+    case projectNumber
     case managementTier
 }
 
@@ -41,7 +46,9 @@ enum RegistrationError: Error {
     case missingState
     case missingZipCode
     case missingSSN
+    case missingCompany
     case missingDateOfBirth
+    case missingProjectNumber
     case missingManagementTier
     case birthdayError
     case notYoungerThanFiveYearsOld
@@ -53,8 +60,8 @@ protocol SetUpVisitor {
 }
 
 struct Visitor: SetUpVisitor {
-    let entrantType: EntrantType
-    let personalInformation: [PersonalInformation: Any]
+    var entrantType: EntrantType
+    var personalInformation: [PersonalInformation: Any]
     
     // Perform error checking based on entrant type and the information that was entered into the form.
     func checkRegistrationForErrors(visitor: Visitor) throws -> Bool {
@@ -96,6 +103,16 @@ struct Visitor: SetUpVisitor {
                 if visitor.personalInformation[.SSN] == nil { throw RegistrationError.missingSSN }
                 if visitor.personalInformation[.dateOfBirth] == nil { throw RegistrationError.missingDateOfBirth }
                 return true
+            case .contract:
+                if visitor.personalInformation[.firstName] == nil { throw RegistrationError.missingFirstName }
+                if visitor.personalInformation[.lastName] == nil { throw RegistrationError.missingLastName }
+                if visitor.personalInformation[.streetAddress] == nil { throw RegistrationError.missingStreetAddress }
+                if visitor.personalInformation[.city] == nil { throw RegistrationError.missingCity }
+                if visitor.personalInformation[.state] == nil { throw RegistrationError.missingState }
+                if visitor.personalInformation[.zipCode] == nil { throw RegistrationError.missingZipCode }
+                if visitor.personalInformation[.SSN] == nil { throw RegistrationError.missingSSN }
+                if visitor.personalInformation[.dateOfBirth] == nil { throw RegistrationError.missingDateOfBirth }
+                if visitor.personalInformation[.projectNumber] == nil { throw RegistrationError.missingProjectNumber }
             case .manager:
                 if visitor.personalInformation[.firstName] == nil { throw RegistrationError.missingFirstName }
                 if visitor.personalInformation[.lastName] == nil { throw RegistrationError.missingLastName }
@@ -107,6 +124,26 @@ struct Visitor: SetUpVisitor {
                 if visitor.personalInformation[.dateOfBirth] == nil { throw RegistrationError.missingDateOfBirth }
                 if visitor.personalInformation[.managementTier] == nil { throw RegistrationError.missingManagementTier }
                 return true
+            case .season:
+                if visitor.personalInformation[.firstName] == nil { throw RegistrationError.missingFirstName }
+                if visitor.personalInformation[.lastName] == nil { throw RegistrationError.missingLastName }
+                if visitor.personalInformation[.streetAddress] == nil { throw RegistrationError.missingStreetAddress }
+                if visitor.personalInformation[.city] == nil { throw RegistrationError.missingCity }
+                if visitor.personalInformation[.state] == nil { throw RegistrationError.missingState }
+                if visitor.personalInformation[.zipCode] == nil { throw RegistrationError.missingZipCode }
+                if visitor.personalInformation[.dateOfBirth] == nil { throw RegistrationError.missingDateOfBirth }
+                return true
+            case .senior:
+                if visitor.personalInformation[.firstName] == nil { throw RegistrationError.missingFirstName }
+                if visitor.personalInformation[.lastName] == nil { throw RegistrationError.missingLastName }
+                if visitor.personalInformation[.dateOfBirth] == nil { throw RegistrationError.missingDateOfBirth }
+                return true
+            case .vendor:
+                if visitor.personalInformation[.firstName] == nil { throw RegistrationError.missingFirstName }
+                if visitor.personalInformation[.lastName] == nil { throw RegistrationError.missingLastName }
+                if visitor.personalInformation[.company] == nil { throw RegistrationError.missingCompany }
+                if visitor.personalInformation[.dateOfBirth] == nil { throw RegistrationError.missingDateOfBirth }
+                return true
             }
         }
         catch RegistrationError.missingFirstName { print("Please enter in a first name.") }
@@ -116,9 +153,11 @@ struct Visitor: SetUpVisitor {
         catch RegistrationError.missingState { print("Please enter in a state.") }
         catch RegistrationError.missingZipCode { print("Please enter in a zipcode.") }
         catch RegistrationError.missingSSN { print("Please enter in a social security number.") }
+        catch RegistrationError.missingCompany { print("Please enter in a company name.")}
         catch RegistrationError.missingDateOfBirth { print("Please enter in a date of birth.") }
+        catch RegistrationError.missingProjectNumber { print("Please enter in a Project Number.") }
         catch RegistrationError.missingManagementTier { print("Please enter in the management tier.") }
-        catch RegistrationError.birthdayError { print("There is an issue with the date of birth! Please verify it is entered in the format: dd/mm/yyyy") }
+        catch RegistrationError.birthdayError { print("There is an issue with the date of birth! Please verify it is entered in the format: MM/DD/YYYY") }
         catch RegistrationError.notYoungerThanFiveYearsOld { print("I'm sorry but you are too old for a Free Child Pass.")}
         return false
     }
