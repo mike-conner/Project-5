@@ -8,18 +8,18 @@
 import Foundation
 
 // List the different types of visitors
-enum EntrantType {
-    case classicGuest
-    case vipGuest
-    case freeChildGuest
-    case season
-    case senior
-    case foodServices
-    case rideServices
-    case maintenance
-    case contract
-    case manager
-    case vendor
+enum EntrantType: String {
+    case classicGuest = "Classic Guest Pass"
+    case vipGuest = "VIP Guest Pass"
+    case freeChildGuest = "Free Child Guest Pass"
+    case season = "Season Pass"
+    case senior = "Senior Pass"
+    case foodServices = "Food Services Pass"
+    case rideServices = "Ride Services Pass"
+    case maintenance = "Maintenance Pass"
+    case contract = "Contract Employee Pass"
+    case manager = "Manager Pass"
+    case vendor = "Vendor Pass"
 }
 
 // List the personal information that may be asked on the registration form.

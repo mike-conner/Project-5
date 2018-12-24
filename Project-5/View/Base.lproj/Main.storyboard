@@ -409,7 +409,6 @@
         <!--Entrant Pass View Controller-->
         <scene sceneID="Kxi-Hp-pu0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N9H-WV-7MK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="EntrantPassVC" id="Zoj-mM-QC4" customClass="EntrantPassViewController" customModule="Project_5" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xHY-wy-7I5">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -660,7 +659,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XyB-r7-bJu"/>
                     </view>
+                    <connections>
+                        <outlet property="entrantName" destination="m6b-VH-gwJ" id="u7v-Ji-8Hv"/>
+                        <outlet property="foodDiscount" destination="GvG-vk-EUL" id="XyA-pk-WtN"/>
+                        <outlet property="merchDiscount" destination="y0e-9k-hmh" id="tjW-VD-DIx"/>
+                        <outlet property="passType" destination="Ztv-Ly-efr" id="pR2-J5-kvL"/>
+                        <outlet property="rideAccess" destination="8LY-6E-gni" id="Z9b-SG-D7j"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N9H-WV-7MK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="923.4375" y="133.59375"/>
         </scene>

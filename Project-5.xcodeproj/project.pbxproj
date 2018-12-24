@@ -84,8 +84,8 @@
 		13B4E9A721B6102800CA1250 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				13DB48E521D04857001DA1D9 /* EntrantPassViewController.swift */,
 				13B4E99421B60EAE00CA1250 /* ViewController.swift */,
+				13DB48E521D04857001DA1D9 /* EntrantPassViewController.swift */,
 				13B4E99221B60EAE00CA1250 /* AppDelegate.swift */,
 			);
 			path = Controller;

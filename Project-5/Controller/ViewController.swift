@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var newVisitor = Visitor(entrantType: .classicGuest, personalInformation: [:])
+    var entrantPass = Pass(visitor: Visitor(entrantType: .classicGuest, personalInformation: [:]))
     
     var entrantTypeIndex: Int = 0
     var entrantSubTypeIndex: Int = 0
@@ -49,7 +50,12 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        <#code#>
+        
+        if let entrantPassViewController = segue.destination as? EntrantPassViewController {
+            entrantPassViewController.entrantPass = entrantPass
+            entrantPassViewController.newVisitor = newVisitor
+        }
+        
     }
     
     @IBAction func segmentedControllerTop(_ sender: Any) {
@@ -102,7 +108,7 @@ class ViewController: UIViewController {
         
         switch entrantType {
         case "00", "01":
-            if entrantType == "01" { newVisitor.entrantType = .classicGuest }
+            if entrantType == "00" { newVisitor.entrantType = .classicGuest }
             else { newVisitor.entrantType = .vipGuest }
         case "02":
             newVisitor.entrantType = .freeChildGuest
@@ -140,7 +146,7 @@ class ViewController: UIViewController {
         if (try? newVisitor.checkRegistrationForErrors(visitor: newVisitor)) == false {
             return
         }
-        let entrantPass = Pass(visitor: newVisitor)
+        entrantPass = Pass(visitor: newVisitor)
         
         performSegue(withIdentifier: "entrantPassSeque", sender: self)
         

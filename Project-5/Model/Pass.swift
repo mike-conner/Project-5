@@ -16,9 +16,9 @@ enum AreaAccess: String {
 }
 
 // List whether a user can skip lines or cannot skip lines.
-enum RideAccess {
-    case canNotSkipLines
-    case canSkipLines
+enum RideAccess: String {
+    case canNotSkipLines = "Unlimited rides, no skipping lines"
+    case canSkipLines = "Unlimited rides, can skip lines"
 }
 
 // List the different types of discounts offered.
@@ -38,7 +38,7 @@ class Pass {
         if let firstName = visitor.personalInformation[.firstName], let lastName = visitor.personalInformation[.lastName] {
             entrantsName = "\(firstName) \(lastName)"
         } else {
-            entrantsName = " " // For when no name is required.
+            entrantsName = "No Name Required" // For when no name is required.
         }
         
         // Set values of based on entrant type according to the buisness rules.
