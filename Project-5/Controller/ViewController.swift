@@ -48,6 +48,10 @@ class ViewController: UIViewController {
         setUpRegistrationFields()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
+    }
+    
     @IBAction func segmentedControllerTop(_ sender: Any) {
         entrantTypeIndex = entrantTypeSegmentedControl.selectedSegmentIndex
         
