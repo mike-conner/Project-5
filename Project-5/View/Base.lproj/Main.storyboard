@@ -547,6 +547,9 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="amusementAreaTestButton:" destination="Zoj-mM-QC4" eventType="touchUpInside" id="GQx-ve-1of"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7A-lL-07U">
                                                 <rect key="frame" x="310.5" y="0.0" width="303" height="50"/>
@@ -565,6 +568,9 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="kitchenAreaTestButton:" destination="Zoj-mM-QC4" eventType="touchUpInside" id="5og-gv-YFt"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSw-tn-i8P">
                                                 <rect key="frame" x="621.5" y="0.0" width="302.5" height="50"/>
@@ -583,6 +589,9 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="rideControlAreaTestButton:" destination="Zoj-mM-QC4" eventType="touchUpInside" id="x15-4q-rbJ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -606,6 +615,9 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="maintenanceAreaTestButton:" destination="Zoj-mM-QC4" eventType="touchUpInside" id="24f-zc-1vk"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIk-xG-vmD">
                                                 <rect key="frame" x="310.5" y="0.0" width="303" height="50"/>
@@ -624,6 +636,9 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="officeAreaTestButton:" destination="Zoj-mM-QC4" eventType="touchUpInside" id="DzC-Ny-eNd"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="PEC-jr-mRP">
                                                 <rect key="frame" x="621.5" y="0.0" width="302.5" height="50"/>
@@ -642,6 +657,9 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="rideAndDiscountTestButton:" destination="Zoj-mM-QC4" eventType="touchUpInside" id="YMF-m2-9La"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -725,6 +743,7 @@
                         <outlet property="merchDiscount" destination="y0e-9k-hmh" id="tjW-VD-DIx"/>
                         <outlet property="passType" destination="Ztv-Ly-efr" id="pR2-J5-kvL"/>
                         <outlet property="rideAccess" destination="8LY-6E-gni" id="Z9b-SG-D7j"/>
+                        <outlet property="testResults" destination="zlS-Xp-4lf" id="niQ-aq-S4I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N9H-WV-7MK" userLabel="First Responder" sceneMemberID="firstResponder"/>

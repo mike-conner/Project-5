@@ -19,6 +19,7 @@ class EntrantPassViewController: UIViewController {
     @IBOutlet weak var rideAccess: UILabel!
     @IBOutlet weak var foodDiscount: UILabel!
     @IBOutlet weak var merchDiscount: UILabel!
+    @IBOutlet weak var testResults: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,23 @@ class EntrantPassViewController: UIViewController {
 
     }
     
+    @IBAction func amusementAreaTestButton(_ sender: Any) {
+    }
     
-
+    @IBAction func kitchenAreaTestButton(_ sender: Any) {
+    }
+    
+    @IBAction func rideControlAreaTestButton(_ sender: Any) {
+    }
+    
+    @IBAction func maintenanceAreaTestButton(_ sender: Any) {
+    }
+    
+    @IBAction func officeAreaTestButton(_ sender: Any) {
+    }
+    
+    @IBAction func rideAndDiscountTestButton(_ sender: Any) {
+    }
+    
+    
 }
