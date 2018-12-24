@@ -508,12 +508,133 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="eYA-6L-GMO">
+                                <rect key="frame" x="0.0" y="562.5" width="768" height="411.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dsd-9V-yks">
+                                        <rect key="frame" x="63" y="0.0" width="642.5" height="62"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Access Testing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaA-J8-sEM">
+                                                <rect key="frame" x="232.5" y="0.0" width="177" height="30"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm the pass has the expected level of access when swioed at a kiosk." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAE-gr-yKo">
+                                                <rect key="frame" x="0.0" y="38" width="642.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="K9E-4a-62o">
+                                        <rect key="frame" x="50" y="103.5" width="668" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tit-yH-b9i">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="gav-YA-HsR"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="nrR-Y1-SDk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="tintColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Area Access">
+                                                    <color key="titleColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7A-lL-07U">
+                                                <rect key="frame" x="234" y="0.0" width="200" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="0WQ-n7-5qi"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Igg-74-JSF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="tintColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Ride Access">
+                                                    <color key="titleColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSw-tn-i8P">
+                                                <rect key="frame" x="468" y="0.0" width="200" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="2AG-lJ-SnS"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Igp-XJ-akA"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="tintColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Discount Access">
+                                                    <color key="titleColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlS-Xp-4lf">
+                                        <rect key="frame" x="50" y="195" width="668" height="100"/>
+                                        <color key="backgroundColor" red="0.79565149545669556" green="0.77480828762054443" blue="0.80987352132797241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="mSg-Ed-iP1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63L-2G-ru6">
+                                        <rect key="frame" x="234" y="336.5" width="300" height="75"/>
+                                        <color key="backgroundColor" red="0.79565149545669556" green="0.77480828762054443" blue="0.80987352132797241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="75" id="4qF-XB-67N"/>
+                                            <constraint firstAttribute="width" constant="300" id="PEv-3o-AOZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Create New Button">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="zlS-Xp-4lf" firstAttribute="leading" secondItem="eYA-6L-GMO" secondAttribute="leading" constant="50" id="EcA-Oq-Tp2"/>
+                                    <constraint firstAttribute="trailing" secondItem="K9E-4a-62o" secondAttribute="trailing" constant="50" id="Lc0-Jo-cAL"/>
+                                    <constraint firstAttribute="trailing" secondItem="zlS-Xp-4lf" secondAttribute="trailing" constant="50" id="SiJ-BH-DST"/>
+                                    <constraint firstItem="K9E-4a-62o" firstAttribute="leading" secondItem="eYA-6L-GMO" secondAttribute="leading" constant="50" id="hW8-nl-kNv"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.85896033049999998" green="0.83850973839999998" blue="0.87296634910000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FGu-oB-07G" firstAttribute="top" secondItem="q0c-za-hdz" secondAttribute="bottom" constant="110" id="3iT-47-ZPH"/>
                             <constraint firstItem="q35-Bo-k6O" firstAttribute="top" secondItem="tYZ-R1-rR8" secondAttribute="bottom" constant="50" id="51J-91-vXa"/>
                             <constraint firstItem="tYZ-R1-rR8" firstAttribute="top" secondItem="XyB-r7-bJu" secondAttribute="top" id="5FA-5L-dHp"/>
+                            <constraint firstItem="eYA-6L-GMO" firstAttribute="leading" secondItem="XyB-r7-bJu" secondAttribute="leading" id="Bez-aP-6vS"/>
                             <constraint firstItem="XyB-r7-bJu" firstAttribute="trailing" secondItem="q35-Bo-k6O" secondAttribute="trailing" constant="50" id="CPb-Wn-PAc"/>
                             <constraint firstItem="3bq-jF-oXz" firstAttribute="top" secondItem="tYZ-R1-rR8" secondAttribute="bottom" constant="110" id="D0G-D2-qfa"/>
                             <constraint firstItem="XyB-r7-bJu" firstAttribute="trailing" secondItem="FGu-oB-07G" secondAttribute="trailing" id="E4W-YV-3KP"/>
@@ -521,13 +642,16 @@
                             <constraint firstItem="9VP-pM-MIQ" firstAttribute="top" secondItem="tYZ-R1-rR8" secondAttribute="bottom" constant="70" id="JPu-mr-tHn"/>
                             <constraint firstItem="9VP-pM-MIQ" firstAttribute="centerX" secondItem="xHY-wy-7I5" secondAttribute="centerX" id="LUf-Os-EZi"/>
                             <constraint firstItem="FGu-oB-07G" firstAttribute="centerY" secondItem="xHY-wy-7I5" secondAttribute="centerY" id="OZo-IU-Ufh"/>
+                            <constraint firstItem="eYA-6L-GMO" firstAttribute="top" secondItem="FGu-oB-07G" secondAttribute="bottom" constant="50" id="QlY-pi-17m"/>
                             <constraint firstItem="FGu-oB-07G" firstAttribute="top" secondItem="q35-Bo-k6O" secondAttribute="bottom" constant="50" id="RUU-Xg-UpV"/>
                             <constraint firstItem="FGu-oB-07G" firstAttribute="leading" secondItem="XyB-r7-bJu" secondAttribute="leading" id="Ty6-wG-16b"/>
                             <constraint firstItem="FGu-oB-07G" firstAttribute="top" secondItem="3bq-jF-oXz" secondAttribute="bottom" constant="110" id="Vty-Qm-BpD"/>
                             <constraint firstItem="q35-Bo-k6O" firstAttribute="leading" secondItem="XyB-r7-bJu" secondAttribute="leading" constant="50" id="WEj-Uo-U3c"/>
+                            <constraint firstItem="XyB-r7-bJu" firstAttribute="bottom" secondItem="eYA-6L-GMO" secondAttribute="bottom" constant="50" id="bml-XU-fVn"/>
                             <constraint firstItem="3bq-jF-oXz" firstAttribute="leading" secondItem="XyB-r7-bJu" secondAttribute="leading" constant="110" id="kjD-UZ-59i"/>
                             <constraint firstItem="tYZ-R1-rR8" firstAttribute="leading" secondItem="XyB-r7-bJu" secondAttribute="leading" id="nWE-rq-pxn"/>
                             <constraint firstItem="q0c-za-hdz" firstAttribute="top" secondItem="3bq-jF-oXz" secondAttribute="top" id="nly-Vh-rEW"/>
+                            <constraint firstItem="XyB-r7-bJu" firstAttribute="trailing" secondItem="eYA-6L-GMO" secondAttribute="trailing" id="pND-c3-a1F"/>
                             <constraint firstItem="q0c-za-hdz" firstAttribute="leading" secondItem="3bq-jF-oXz" secondAttribute="trailing" constant="80" id="sLe-PL-gE1"/>
                             <constraint firstItem="q0c-za-hdz" firstAttribute="top" secondItem="tYZ-R1-rR8" secondAttribute="bottom" constant="110" id="v5l-Qj-kN4"/>
                             <constraint firstItem="q0c-za-hdz" firstAttribute="bottom" secondItem="3bq-jF-oXz" secondAttribute="bottom" id="zWt-YA-iIJ"/>
