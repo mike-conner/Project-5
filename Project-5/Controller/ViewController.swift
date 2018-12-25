@@ -61,38 +61,8 @@ class ViewController: UIViewController {
     @IBAction func segmentedControllerTop(_ sender: Any) {
         entrantTypeIndex = entrantTypeSegmentedControl.selectedSegmentIndex
         
-        switch entrantTypeIndex {
-        case 0:
-            entrantSubTypeSegmentedControl.isHidden = false
-            entrantSubTypeSegmentedControl.removeAllSegments()
-            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Classic", at: 0, animated: false)
-            entrantSubTypeSegmentedControl.insertSegment(withTitle: "VIP", at: 1, animated: false)
-            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Free Child", at: 2, animated: false)
-            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Season", at: 3, animated: false)
-            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Senior", at: 4, animated: false)
-            entrantSubTypeSegmentedControl.selectedSegmentIndex = 0
-        case 1:
-            entrantSubTypeSegmentedControl.isHidden = false
-            entrantSubTypeSegmentedControl.removeAllSegments()
-            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Food Services", at: 0, animated: false)
-            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Ride Services", at: 1, animated: false)
-            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Maintenance", at: 2, animated: false)
-            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Contract", at: 3, animated: false)
-            entrantSubTypeSegmentedControl.selectedSegmentIndex = 0
-        case 2:
-            entrantSubTypeSegmentedControl.isHidden = false
-            entrantSubTypeSegmentedControl.removeAllSegments()
-            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Shift Manager", at: 0, animated: false)
-            entrantSubTypeSegmentedControl.insertSegment(withTitle: "General Manager", at: 1, animated: false)
-            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Senior Manager", at: 2, animated: false)
-            entrantSubTypeSegmentedControl.selectedSegmentIndex = 0
-        case 3:
-            entrantSubTypeSegmentedControl.removeAllSegments()
-            entrantSubTypeSegmentedControl.isHidden = true
-            entrantSubTypeIndex = 0
-        default:
-            break
-        }
+        setUpEntrantSubTypeSegmentedControl(entrantTypeIndex: entrantTypeIndex)
+        
         setUpRegistrationFields()
         clearAllRegistrationFields()
     }
@@ -149,6 +119,15 @@ class ViewController: UIViewController {
         entrantPass = Pass(visitor: newVisitor)
         
         performSegue(withIdentifier: "entrantPassSeque", sender: self)
+        
+        clearAllRegistrationFields()
+        entrantTypeIndex = 0
+        entrantSubTypeIndex = 0
+        setUpEntrantSubTypeSegmentedControl(entrantTypeIndex: entrantTypeIndex)
+        entrantTypeSegmentedControl.selectedSegmentIndex = 0
+        entrantSubTypeSegmentedControl.selectedSegmentIndex = 0
+        setUpRegistrationFields()
+        
         
     }
     
@@ -279,5 +258,39 @@ class ViewController: UIViewController {
         }
     }
     
+    func setUpEntrantSubTypeSegmentedControl(entrantTypeIndex: Int) {
+        switch entrantTypeIndex {
+        case 0:
+            entrantSubTypeSegmentedControl.isHidden = false
+            entrantSubTypeSegmentedControl.removeAllSegments()
+            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Classic", at: 0, animated: false)
+            entrantSubTypeSegmentedControl.insertSegment(withTitle: "VIP", at: 1, animated: false)
+            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Free Child", at: 2, animated: false)
+            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Season", at: 3, animated: false)
+            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Senior", at: 4, animated: false)
+            entrantSubTypeSegmentedControl.selectedSegmentIndex = 0
+        case 1:
+            entrantSubTypeSegmentedControl.isHidden = false
+            entrantSubTypeSegmentedControl.removeAllSegments()
+            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Food Services", at: 0, animated: false)
+            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Ride Services", at: 1, animated: false)
+            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Maintenance", at: 2, animated: false)
+            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Contract", at: 3, animated: false)
+            entrantSubTypeSegmentedControl.selectedSegmentIndex = 0
+        case 2:
+            entrantSubTypeSegmentedControl.isHidden = false
+            entrantSubTypeSegmentedControl.removeAllSegments()
+            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Shift Manager", at: 0, animated: false)
+            entrantSubTypeSegmentedControl.insertSegment(withTitle: "General Manager", at: 1, animated: false)
+            entrantSubTypeSegmentedControl.insertSegment(withTitle: "Senior Manager", at: 2, animated: false)
+            entrantSubTypeSegmentedControl.selectedSegmentIndex = 0
+        case 3:
+            entrantSubTypeSegmentedControl.removeAllSegments()
+            entrantSubTypeSegmentedControl.isHidden = true
+            entrantSubTypeIndex = 0
+        default:
+            break
+        }
+    }
 }
 
