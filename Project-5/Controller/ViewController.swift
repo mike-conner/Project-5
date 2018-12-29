@@ -218,7 +218,6 @@ class ViewController: UIViewController {
     
     func setUpRegistrationFields() {
         let entrantType: String = String(entrantTypeIndex) + String(entrantSubTypeIndex)
-        print(entrantType)
         let backgroundColorEnabled = UIColor.init(red: 1, green: 1, blue: 1, alpha: 1)
         let backgroundColorNotEnabled = UIColor.init(red: 0.858, green: 0.839, blue: 0.874, alpha: 1)
 
