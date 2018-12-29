@@ -15,6 +15,7 @@
 		13B4E99D21B60EAF00CA1250 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B4E99B21B60EAF00CA1250 /* LaunchScreen.storyboard */; };
 		13B6ABC821BB3B2E00BBB774 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B6ABC721BB3B2E00BBB774 /* Visitor.swift */; };
 		13B6ABCA21BB3C0D00BBB774 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B6ABC921BB3C0D00BBB774 /* Pass.swift */; };
+		13C1D06521D5A4B700A0F1D6 /* RandomVisitorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1D06421D5A4B700A0F1D6 /* RandomVisitorData.swift */; };
 		13DB48E621D04857001DA1D9 /* EntrantPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB48E521D04857001DA1D9 /* EntrantPassViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		13B4E99E21B60EAF00CA1250 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13B6ABC721BB3B2E00BBB774 /* Visitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visitor.swift; sourceTree = "<group>"; };
 		13B6ABC921BB3C0D00BBB774 /* Pass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
+		13C1D06421D5A4B700A0F1D6 /* RandomVisitorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomVisitorData.swift; sourceTree = "<group>"; };
 		13DB48E521D04857001DA1D9 /* EntrantPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EntrantPassViewController.swift; path = "Project-5/Controller/EntrantPassViewController.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -77,6 +79,7 @@
 			children = (
 				13B6ABC721BB3B2E00BBB774 /* Visitor.swift */,
 				13B6ABC921BB3C0D00BBB774 /* Pass.swift */,
+				13C1D06421D5A4B700A0F1D6 /* RandomVisitorData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -84,8 +87,8 @@
 		13B4E9A721B6102800CA1250 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				13DB48E521D04857001DA1D9 /* EntrantPassViewController.swift */,
 				13B4E99421B60EAE00CA1250 /* ViewController.swift */,
+				13DB48E521D04857001DA1D9 /* EntrantPassViewController.swift */,
 				13B4E99221B60EAE00CA1250 /* AppDelegate.swift */,
 			);
 			path = Controller;
@@ -181,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B6ABCA21BB3C0D00BBB774 /* Pass.swift in Sources */,
+				13C1D06521D5A4B700A0F1D6 /* RandomVisitorData.swift in Sources */,
 				13DB48E621D04857001DA1D9 /* EntrantPassViewController.swift in Sources */,
 				13B4E99521B60EAE00CA1250 /* ViewController.swift in Sources */,
 				13B6ABC821BB3B2E00BBB774 /* Visitor.swift in Sources */,

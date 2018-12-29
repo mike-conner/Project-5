@@ -366,6 +366,9 @@
                                                 <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="populateDataButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ii2-77-et9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -409,7 +412,6 @@
         <!--Entrant Pass View Controller-->
         <scene sceneID="Kxi-Hp-pu0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N9H-WV-7MK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="EntrantPassVC" id="Zoj-mM-QC4" customClass="EntrantPassViewController" customModule="Project_5" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xHY-wy-7I5">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -508,31 +510,31 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="eYA-6L-GMO">
-                                <rect key="frame" x="0.0" y="562.5" width="768" height="411.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eYA-6L-GMO">
+                                <rect key="frame" x="0.0" y="542.5" width="768" height="431.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dsd-9V-yks">
-                                        <rect key="frame" x="63" y="0.0" width="642.5" height="86.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dsd-9V-yks">
+                                        <rect key="frame" x="62.5" y="0.0" width="643" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Access Testing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaA-J8-sEM">
-                                                <rect key="frame" x="232.5" y="0.0" width="177" height="30"/>
+                                                <rect key="frame" x="233" y="0.0" width="177" height="30"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm the pass has the expected level of access when swioed at a kiosk." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAE-gr-yKo">
-                                                <rect key="frame" x="0.0" y="30" width="642.5" height="56.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm the pass has the expected level of access when swiped at a kiosk." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAE-gr-yKo">
+                                                <rect key="frame" x="0.0" y="30" width="643" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="K9E-4a-62o">
-                                        <rect key="frame" x="50" y="116.5" width="668" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="K9E-4a-62o">
+                                        <rect key="frame" x="50" y="68.5" width="668" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tit-yH-b9i">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="217.5" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="gav-YA-HsR"/>
@@ -540,7 +542,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="tintColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Area Access">
+                                                <state key="normal" title="Amusement Area">
                                                     <color key="titleColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -548,9 +550,12 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="amusementAreaTestButton:" destination="Zoj-mM-QC4" eventType="touchUpInside" id="GQx-ve-1of"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7A-lL-07U">
-                                                <rect key="frame" x="234" y="0.0" width="200" height="50"/>
+                                                <rect key="frame" x="225.5" y="0.0" width="217" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="0WQ-n7-5qi"/>
@@ -558,7 +563,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="tintColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Ride Access">
+                                                <state key="normal" title="Kitchen Area">
                                                     <color key="titleColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -566,9 +571,12 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="kitchenAreaTestButton:" destination="Zoj-mM-QC4" eventType="touchUpInside" id="5og-gv-YFt"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSw-tn-i8P">
-                                                <rect key="frame" x="468" y="0.0" width="200" height="50"/>
+                                                <rect key="frame" x="450.5" y="0.0" width="217.5" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="2AG-lJ-SnS"/>
@@ -576,7 +584,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <color key="tintColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Discount Access">
+                                                <state key="normal" title="Ride Control Access">
                                                     <color key="titleColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -584,17 +592,89 @@
                                                         <integer key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="rideControlAreaTestButton:" destination="Zoj-mM-QC4" eventType="touchUpInside" id="x15-4q-rbJ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlS-Xp-4lf">
-                                        <rect key="frame" x="50" y="196.5" width="668" height="110"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kCm-sW-crB">
+                                        <rect key="frame" x="50" y="127" width="668" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufy-A9-JmM">
+                                                <rect key="frame" x="0.0" y="0.0" width="217.5" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="orb-04-cJc"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="qte-pZ-UnK"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="tintColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Maintenance Area">
+                                                    <color key="titleColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="maintenanceAreaTestButton:" destination="Zoj-mM-QC4" eventType="touchUpInside" id="24f-zc-1vk"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIk-xG-vmD">
+                                                <rect key="frame" x="225.5" y="0.0" width="217" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="D8X-Yu-hdU"/>
+                                                    <constraint firstAttribute="height" constant="50" id="cdo-sS-Fv3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="tintColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Office Area">
+                                                    <color key="titleColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="officeAreaTestButton:" destination="Zoj-mM-QC4" eventType="touchUpInside" id="DzC-Ny-eNd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="PEC-jr-mRP">
+                                                <rect key="frame" x="450.5" y="0.0" width="217.5" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="0V8-PL-QvQ"/>
+                                                    <constraint firstAttribute="height" constant="50" id="DfY-k6-KKZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <color key="tintColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Ride and Discount">
+                                                    <color key="titleColor" red="0.34568592910000001" green="0.58384734390000004" blue="0.56090533730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="rideAndDiscountTestButton:" destination="Zoj-mM-QC4" eventType="touchUpInside" id="YMF-m2-9La"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlS-Xp-4lf">
+                                        <rect key="frame" x="50" y="185" width="668" height="163"/>
                                         <color key="backgroundColor" red="0.79565149545669556" green="0.77480828762054443" blue="0.80987352132797241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="163" id="8UG-zC-fBb"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="mSg-Ed-iP1"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -603,7 +683,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63L-2G-ru6">
-                                        <rect key="frame" x="234" y="336.5" width="300" height="75"/>
+                                        <rect key="frame" x="234" y="356.5" width="300" height="75"/>
                                         <color key="backgroundColor" red="0.79565149545669556" green="0.77480828762054443" blue="0.80987352132797241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="4qF-XB-67N"/>
@@ -611,7 +691,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Create New Button">
+                                        <state key="normal" title="Create New Pass">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -619,14 +699,17 @@
                                                 <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="createNewPassButton:" destination="Zoj-mM-QC4" eventType="touchUpInside" id="wSs-vD-0ds"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="zlS-Xp-4lf" firstAttribute="leading" secondItem="eYA-6L-GMO" secondAttribute="leading" constant="50" id="EcA-Oq-Tp2"/>
+                                    <constraint firstItem="kCm-sW-crB" firstAttribute="leading" secondItem="eYA-6L-GMO" secondAttribute="leading" constant="50" id="HDp-YM-bAe"/>
+                                    <constraint firstAttribute="trailing" secondItem="kCm-sW-crB" secondAttribute="trailing" constant="50" id="IGp-jK-Qlv"/>
                                     <constraint firstAttribute="trailing" secondItem="K9E-4a-62o" secondAttribute="trailing" constant="50" id="Lc0-Jo-cAL"/>
-                                    <constraint firstItem="63L-2G-ru6" firstAttribute="top" secondItem="zlS-Xp-4lf" secondAttribute="bottom" constant="30" id="RNi-hX-tlN"/>
                                     <constraint firstAttribute="trailing" secondItem="zlS-Xp-4lf" secondAttribute="trailing" constant="50" id="SiJ-BH-DST"/>
-                                    <constraint firstItem="zlS-Xp-4lf" firstAttribute="top" secondItem="K9E-4a-62o" secondAttribute="bottom" constant="30" id="bkB-wc-FrP"/>
                                     <constraint firstItem="K9E-4a-62o" firstAttribute="leading" secondItem="eYA-6L-GMO" secondAttribute="leading" constant="50" id="hW8-nl-kNv"/>
                                 </constraints>
                             </stackView>
@@ -644,7 +727,7 @@
                             <constraint firstItem="9VP-pM-MIQ" firstAttribute="top" secondItem="tYZ-R1-rR8" secondAttribute="bottom" constant="70" id="JPu-mr-tHn"/>
                             <constraint firstItem="9VP-pM-MIQ" firstAttribute="centerX" secondItem="xHY-wy-7I5" secondAttribute="centerX" id="LUf-Os-EZi"/>
                             <constraint firstItem="FGu-oB-07G" firstAttribute="centerY" secondItem="xHY-wy-7I5" secondAttribute="centerY" id="OZo-IU-Ufh"/>
-                            <constraint firstItem="eYA-6L-GMO" firstAttribute="top" secondItem="FGu-oB-07G" secondAttribute="bottom" constant="50" id="QlY-pi-17m"/>
+                            <constraint firstItem="eYA-6L-GMO" firstAttribute="top" secondItem="FGu-oB-07G" secondAttribute="bottom" constant="30" id="QlY-pi-17m"/>
                             <constraint firstItem="FGu-oB-07G" firstAttribute="top" secondItem="q35-Bo-k6O" secondAttribute="bottom" constant="50" id="RUU-Xg-UpV"/>
                             <constraint firstItem="FGu-oB-07G" firstAttribute="leading" secondItem="XyB-r7-bJu" secondAttribute="leading" id="Ty6-wG-16b"/>
                             <constraint firstItem="FGu-oB-07G" firstAttribute="top" secondItem="3bq-jF-oXz" secondAttribute="bottom" constant="110" id="Vty-Qm-BpD"/>
@@ -660,7 +743,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XyB-r7-bJu"/>
                     </view>
+                    <connections>
+                        <outlet property="entrantName" destination="m6b-VH-gwJ" id="u7v-Ji-8Hv"/>
+                        <outlet property="foodDiscount" destination="GvG-vk-EUL" id="XyA-pk-WtN"/>
+                        <outlet property="merchDiscount" destination="y0e-9k-hmh" id="tjW-VD-DIx"/>
+                        <outlet property="passType" destination="Ztv-Ly-efr" id="pR2-J5-kvL"/>
+                        <outlet property="rideAccess" destination="8LY-6E-gni" id="Z9b-SG-D7j"/>
+                        <outlet property="testResults" destination="zlS-Xp-4lf" id="niQ-aq-S4I"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N9H-WV-7MK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="923.4375" y="133.59375"/>
         </scene>

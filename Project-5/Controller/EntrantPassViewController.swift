@@ -9,22 +9,96 @@
 import UIKit
 
 class EntrantPassViewController: UIViewController {
-
+    
+    
+    var entrantPass = Pass(visitor: Visitor(entrantType: .classicGuest, personalInformation: [:]))
+    var newVisitor = Visitor(entrantType: .classicGuest, personalInformation: [:])
+    
+    @IBOutlet weak var passType: UILabel!
+    @IBOutlet weak var entrantName: UILabel!
+    @IBOutlet weak var rideAccess: UILabel!
+    @IBOutlet weak var foodDiscount: UILabel!
+    @IBOutlet weak var merchDiscount: UILabel!
+    @IBOutlet weak var testResults: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        entrantName.text = entrantPass.entrantsName
+        passType.text = newVisitor.entrantType.rawValue
+        rideAccess.text = entrantPass.rideAccess[0].rawValue
+        foodDiscount.text = "\(entrantPass.discount[.food] ?? 0)% Food Discount"
+        merchDiscount.text = "\(entrantPass.discount[.merchandise] ?? 0)% Merchandise Discount"
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func amusementAreaTestButton(_ sender: Any) {
+        if checkForAreaAccess(area: .amusementArea) == true {
+            testResults.backgroundColor = UIColor.green
+            testResults.text = "ACCESS GRANTED!\r You have access to the Amusement Area!"
+        } else {
+            testResults.backgroundColor = UIColor.red
+            testResults.text = "ACCESS DENIED!\r You DO NOT have access to the Amusement Area!"
+        }
     }
-    */
-
+    
+    @IBAction func kitchenAreaTestButton(_ sender: Any) {
+        if checkForAreaAccess(area: .kitchenArea) == true {
+            testResults.backgroundColor = UIColor.green
+            testResults.text = "ACCESS GRANTED!\r You have access to the Kitchen Area!"
+        } else {
+            testResults.backgroundColor = UIColor.red
+            testResults.text = "ACCESS DENIED!\r You DO NOT have access to the Kitchen Area!"
+        }
+    }
+    
+    @IBAction func rideControlAreaTestButton(_ sender: Any) {
+        if checkForAreaAccess(area: .rideControlArea) == true {
+            testResults.backgroundColor = UIColor.green
+            testResults.text = "ACCESS GRANTED!\r You have access to the Ride Control Area!"
+        } else {
+            testResults.backgroundColor = UIColor.red
+            testResults.text = "ACCESS DENIED!\r You DO NOT have access to the Ride Control Area!"
+        }
+    }
+    
+    @IBAction func maintenanceAreaTestButton(_ sender: Any) {
+        if checkForAreaAccess(area: .maintenanceArea) == true {
+            testResults.backgroundColor = UIColor.green
+            testResults.text = "ACCESS GRANTED!\r You have access to the Maintenance Area!"
+        } else {
+            testResults.backgroundColor = UIColor.red
+            testResults.text = "ACCESS DENIED!\r You DO NOT have access to the Maintenance Area!"
+        }
+    }
+    
+    @IBAction func officeAreaTestButton(_ sender: Any) {
+        if checkForAreaAccess(area: .officeArea) == true {
+            testResults.backgroundColor = UIColor.green
+            testResults.text = "ACCESS GRANTED!\r You have access to the Office Area!"
+        } else {
+            testResults.backgroundColor = UIColor.red
+            testResults.text = "ACCESS DENIED!\r You DO NOT have access to the Office Area!"
+        }
+    }
+    
+    @IBAction func rideAndDiscountTestButton(_ sender: Any) {
+        testResults.backgroundColor = UIColor.blue
+        if entrantPass.rideAccess[0] == .canNotSkipLines {
+            testResults.text = "You can ride all rides but you are not able to skip any lines.\rYou get a food discount of \(entrantPass.discount[.food] ?? 0)%.\rYou get a merchandise discount of \(entrantPass.discount[.merchandise] ?? 0)%."
+        } else {
+            testResults.text = "You can ride all rides and you can skip all of the lines.\rYou get a food discount of \(entrantPass.discount[.food] ?? 0)%.\rYou get a merchandise discount of \(entrantPass.discount[.merchandise] ?? 0)%."
+        }
+    }
+    
+    @IBAction func createNewPassButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func checkForAreaAccess(area: AreaAccess) -> Bool {
+        for index in 0..<entrantPass.areaAccess.count {
+            if area == entrantPass.areaAccess[index] { return true }
+        }
+        return false
+    }
 }
