@@ -219,15 +219,25 @@ class ViewController: UIViewController {
     
     func clearAllRegistrationFields() {
         dateOfBirthtTextField.text = ""
+        newVisitor.personalInformation[.dateOfBirth] = ""
         SSNTextField.text = ""
+        newVisitor.personalInformation[.SSN] = ""
         projectNumberTextField.text = ""
+        newVisitor.personalInformation[.projectNumber] = ""
         firstnameTextField.text = ""
+        newVisitor.personalInformation[.firstName] = ""
         lastNameTextField.text = ""
+        newVisitor.personalInformation[.lastName] = ""
         companyTextField.text = ""
+        newVisitor.personalInformation[.company] = ""
         streetAddressTextField.text = ""
+        newVisitor.personalInformation[.streetAddress] = ""
         cityTextField.text = ""
+        newVisitor.personalInformation[.city] = ""
         stateTextField.text = ""
+        newVisitor.personalInformation[.state] = ""
         zipCodeTextField.text = ""
+        newVisitor.personalInformation[.zipCode] = ""
     }
     
     func setUpRegistrationFields() {

@@ -37,8 +37,6 @@ class Pass {
     init (visitor: Visitor) {
         if let firstName = visitor.personalInformation[.firstName], let lastName = visitor.personalInformation[.lastName] {
             entrantsName = "\(firstName) \(lastName)"
-        } else {
-            entrantsName = "No Name Required" // For when no name is required.
         }
         
         // Set values of based on entrant type according to the buisness rules.

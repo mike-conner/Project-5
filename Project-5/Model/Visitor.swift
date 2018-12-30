@@ -71,7 +71,9 @@ struct Visitor: SetUpVisitor {
                 // no required information
                 return true
             case .freeChildGuest:
-                if visitor.personalInformation[.dateOfBirth] == nil { throw RegistrationError.missingDateOfBirth }
+                if visitor.personalInformation[.dateOfBirth] == nil || (visitor.personalInformation[.dateOfBirth]) as? String == "" {
+                    throw RegistrationError.missingDateOfBirth
+                }
                 else {
                     guard let date = visitor.personalInformation[.dateOfBirth] as? String else {
                         throw RegistrationError.birthdayError
@@ -94,56 +96,55 @@ struct Visitor: SetUpVisitor {
                 }
                 return true
             case .foodServices, .rideServices, .maintenance:
-                if visitor.personalInformation[.firstName] == nil { throw RegistrationError.missingFirstName }
-                if visitor.personalInformation[.lastName] == nil { throw RegistrationError.missingLastName }
-                if visitor.personalInformation[.streetAddress] == nil { throw RegistrationError.missingStreetAddress }
-                if visitor.personalInformation[.city] == nil { throw RegistrationError.missingCity }
-                if visitor.personalInformation[.state] == nil { throw RegistrationError.missingState }
-                if visitor.personalInformation[.zipCode] == nil { throw RegistrationError.missingZipCode }
-                if visitor.personalInformation[.SSN] == nil { throw RegistrationError.missingSSN }
-                if visitor.personalInformation[.dateOfBirth] == nil { throw RegistrationError.missingDateOfBirth }
+                if visitor.personalInformation[.dateOfBirth] == nil || (visitor.personalInformation[.dateOfBirth]) as? String == "" { throw RegistrationError.missingDateOfBirth }
+                if visitor.personalInformation[.SSN] == nil || (visitor.personalInformation[.SSN]) as? String == "" { throw RegistrationError.missingSSN }
+                if visitor.personalInformation[.firstName] == nil || (visitor.personalInformation[.firstName]) as? String == "" { throw RegistrationError.missingFirstName }
+                if visitor.personalInformation[.lastName] == nil || (visitor.personalInformation[.lastName]) as? String == "" { throw RegistrationError.missingLastName }
+                if visitor.personalInformation[.streetAddress] == nil || (visitor.personalInformation[.streetAddress]) as? String == "" { throw RegistrationError.missingStreetAddress }
+                if visitor.personalInformation[.city] == nil || (visitor.personalInformation[.city]) as? String == "" { throw RegistrationError.missingCity }
+                if visitor.personalInformation[.state] == nil || (visitor.personalInformation[.state]) as? String == "" { throw RegistrationError.missingState }
+                if visitor.personalInformation[.zipCode] == nil || (visitor.personalInformation[.zipCode]) as? String == "" { throw RegistrationError.missingZipCode }
                 return true
             case .contract:
-                if visitor.personalInformation[.firstName] == nil { throw RegistrationError.missingFirstName }
-                if visitor.personalInformation[.lastName] == nil { throw RegistrationError.missingLastName }
-                if visitor.personalInformation[.streetAddress] == nil { throw RegistrationError.missingStreetAddress }
-                if visitor.personalInformation[.city] == nil { throw RegistrationError.missingCity }
-                if visitor.personalInformation[.state] == nil { throw RegistrationError.missingState }
-                if visitor.personalInformation[.zipCode] == nil { throw RegistrationError.missingZipCode }
-                if visitor.personalInformation[.SSN] == nil { throw RegistrationError.missingSSN }
-                if visitor.personalInformation[.dateOfBirth] == nil { throw RegistrationError.missingDateOfBirth }
-                if visitor.personalInformation[.projectNumber] == nil { throw RegistrationError.missingProjectNumber }
+                if visitor.personalInformation[.dateOfBirth] == nil || (visitor.personalInformation[.dateOfBirth]) as? String == "" { throw RegistrationError.missingDateOfBirth }
+                if visitor.personalInformation[.SSN] == nil || (visitor.personalInformation[.SSN]) as? String == "" { throw RegistrationError.missingSSN }
+                if visitor.personalInformation[.projectNumber] == nil || (visitor.personalInformation[.projectNumber]) as? String == "" { throw RegistrationError.missingProjectNumber }
+                if visitor.personalInformation[.firstName] == nil || (visitor.personalInformation[.firstName]) as? String == "" { throw RegistrationError.missingFirstName }
+                if visitor.personalInformation[.lastName] == nil || (visitor.personalInformation[.lastName]) as? String == "" { throw RegistrationError.missingLastName }
+                if visitor.personalInformation[.streetAddress] == nil || (visitor.personalInformation[.streetAddress]) as? String == "" { throw RegistrationError.missingStreetAddress }
+                if visitor.personalInformation[.city] == nil || (visitor.personalInformation[.city]) as? String == "" { throw RegistrationError.missingCity }
+                if visitor.personalInformation[.state] == nil || (visitor.personalInformation[.state]) as? String == "" { throw RegistrationError.missingState }
+                if visitor.personalInformation[.zipCode] == nil || (visitor.personalInformation[.zipCode]) as? String == "" { throw RegistrationError.missingZipCode }
                 return true
             case .manager:
-                if visitor.personalInformation[.firstName] == nil { throw RegistrationError.missingFirstName }
-                if visitor.personalInformation[.lastName] == nil { throw RegistrationError.missingLastName }
-                if visitor.personalInformation[.streetAddress] == nil { throw RegistrationError.missingStreetAddress }
-                if visitor.personalInformation[.city] == nil { throw RegistrationError.missingCity }
-                if visitor.personalInformation[.state] == nil { throw RegistrationError.missingState }
-                if visitor.personalInformation[.zipCode] == nil { throw RegistrationError.missingZipCode }
-                if visitor.personalInformation[.SSN] == nil { throw RegistrationError.missingSSN }
-                if visitor.personalInformation[.dateOfBirth] == nil { throw RegistrationError.missingDateOfBirth }
-                if visitor.personalInformation[.managementTier] == nil { throw RegistrationError.missingManagementTier }
+                if visitor.personalInformation[.dateOfBirth] == nil || (visitor.personalInformation[.dateOfBirth]) as? String == "" { throw RegistrationError.missingDateOfBirth }
+                if visitor.personalInformation[.SSN] == nil || (visitor.personalInformation[.SSN]) as? String == "" { throw RegistrationError.missingSSN }
+                if visitor.personalInformation[.firstName] == nil || (visitor.personalInformation[.firstName]) as? String == "" { throw RegistrationError.missingFirstName }
+                if visitor.personalInformation[.lastName] == nil || (visitor.personalInformation[.lastName]) as? String == "" { throw RegistrationError.missingLastName }
+                if visitor.personalInformation[.streetAddress] == nil || (visitor.personalInformation[.streetAddress]) as? String == "" { throw RegistrationError.missingStreetAddress }
+                if visitor.personalInformation[.city] == nil || (visitor.personalInformation[.city]) as? String == "" { throw RegistrationError.missingCity }
+                if visitor.personalInformation[.state] == nil || (visitor.personalInformation[.state]) as? String == "" { throw RegistrationError.missingState }
+                if visitor.personalInformation[.zipCode] == nil || (visitor.personalInformation[.zipCode]) as? String == "" { throw RegistrationError.missingZipCode }
                 return true
             case .season:
-                if visitor.personalInformation[.firstName] == nil { throw RegistrationError.missingFirstName }
-                if visitor.personalInformation[.lastName] == nil { throw RegistrationError.missingLastName }
-                if visitor.personalInformation[.streetAddress] == nil { throw RegistrationError.missingStreetAddress }
-                if visitor.personalInformation[.city] == nil { throw RegistrationError.missingCity }
-                if visitor.personalInformation[.state] == nil { throw RegistrationError.missingState }
-                if visitor.personalInformation[.zipCode] == nil { throw RegistrationError.missingZipCode }
-                if visitor.personalInformation[.dateOfBirth] == nil { throw RegistrationError.missingDateOfBirth }
+                if visitor.personalInformation[.dateOfBirth] == nil || (visitor.personalInformation[.dateOfBirth]) as? String == "" { throw RegistrationError.missingDateOfBirth }
+                if visitor.personalInformation[.firstName] == nil || (visitor.personalInformation[.firstName]) as? String == "" { throw RegistrationError.missingFirstName }
+                if visitor.personalInformation[.lastName] == nil || (visitor.personalInformation[.lastName]) as? String == "" { throw RegistrationError.missingLastName }
+                if visitor.personalInformation[.streetAddress] == nil || (visitor.personalInformation[.streetAddress]) as? String == "" { throw RegistrationError.missingStreetAddress }
+                if visitor.personalInformation[.city] == nil || (visitor.personalInformation[.city]) as? String == "" { throw RegistrationError.missingCity }
+                if visitor.personalInformation[.state] == nil || (visitor.personalInformation[.state]) as? String == "" { throw RegistrationError.missingState }
+                if visitor.personalInformation[.zipCode] == nil || (visitor.personalInformation[.zipCode]) as? String == "" { throw RegistrationError.missingZipCode }
                 return true
             case .senior:
-                if visitor.personalInformation[.firstName] == nil { throw RegistrationError.missingFirstName }
-                if visitor.personalInformation[.lastName] == nil { throw RegistrationError.missingLastName }
-                if visitor.personalInformation[.dateOfBirth] == nil { throw RegistrationError.missingDateOfBirth }
+                if visitor.personalInformation[.dateOfBirth] == nil || (visitor.personalInformation[.dateOfBirth]) as? String == "" { throw RegistrationError.missingDateOfBirth }
+                if visitor.personalInformation[.firstName] == nil || (visitor.personalInformation[.firstName]) as? String == "" { throw RegistrationError.missingFirstName }
+                if visitor.personalInformation[.lastName] == nil || (visitor.personalInformation[.lastName]) as? String == "" { throw RegistrationError.missingLastName }
                 return true
             case .vendor:
-                if visitor.personalInformation[.firstName] == nil { throw RegistrationError.missingFirstName }
-                if visitor.personalInformation[.lastName] == nil { throw RegistrationError.missingLastName }
-                if visitor.personalInformation[.company] == nil { throw RegistrationError.missingCompany }
-                if visitor.personalInformation[.dateOfBirth] == nil { throw RegistrationError.missingDateOfBirth }
+                if visitor.personalInformation[.dateOfBirth] == nil || (visitor.personalInformation[.dateOfBirth]) as? String == "" { throw RegistrationError.missingDateOfBirth }
+                if visitor.personalInformation[.firstName] == nil || (visitor.personalInformation[.firstName]) as? String == "" { throw RegistrationError.missingFirstName }
+                if visitor.personalInformation[.lastName] == nil || (visitor.personalInformation[.lastName]) as? String == "" { throw RegistrationError.missingLastName }
+                if visitor.personalInformation[.company] == nil || (visitor.personalInformation[.company]) as? String == "" { throw RegistrationError.missingCompany }
                 return true
             }
         }
@@ -157,7 +158,6 @@ struct Visitor: SetUpVisitor {
         catch RegistrationError.missingCompany { print("Please enter in a company name.")}
         catch RegistrationError.missingDateOfBirth { print("Please enter in a date of birth.") }
         catch RegistrationError.missingProjectNumber { print("Please enter in a Project Number.") }
-        catch RegistrationError.missingManagementTier { print("Please enter in the management tier.") }
         catch RegistrationError.birthdayError { print("There is an issue with the date of birth! Please verify it is entered in the format: MM/DD/YYYY") }
         catch RegistrationError.notYoungerThanFiveYearsOld { print("I'm sorry but you are too old for a Free Child Pass.")}
         return false
