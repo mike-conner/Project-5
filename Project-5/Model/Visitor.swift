@@ -6,6 +6,7 @@
 //  Copyright © 2018 Mike Conner. All rights reserved.
 //
 import Foundation
+import UIKit
 
 // List the different types of visitors
 enum EntrantType: String {

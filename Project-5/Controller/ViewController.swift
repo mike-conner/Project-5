@@ -151,6 +151,11 @@ class ViewController: UIViewController {
         }
         
         if (try? newVisitor.checkRegistrationForErrors(visitor: newVisitor)) == false {
+            
+            let alert = UIAlertController(title: "Missing First Name", message: "Please enter in a first name.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
             return
         }
         entrantPass = Pass(visitor: newVisitor)
