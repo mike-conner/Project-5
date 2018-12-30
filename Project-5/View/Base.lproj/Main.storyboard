@@ -71,7 +71,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM / DD / YYYY" textAlignment="natural" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="eih-8b-1bA">
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM / DD / YYYY" textAlignment="center" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="eih-8b-1bA">
                                                         <rect key="frame" x="0.0" y="78" width="229.5" height="70"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="70" id="ajy-OX-luh"/>

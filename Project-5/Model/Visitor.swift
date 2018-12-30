@@ -113,6 +113,7 @@ struct Visitor: SetUpVisitor {
                 if visitor.personalInformation[.SSN] == nil { throw RegistrationError.missingSSN }
                 if visitor.personalInformation[.dateOfBirth] == nil { throw RegistrationError.missingDateOfBirth }
                 if visitor.personalInformation[.projectNumber] == nil { throw RegistrationError.missingProjectNumber }
+                return true
             case .manager:
                 if visitor.personalInformation[.firstName] == nil { throw RegistrationError.missingFirstName }
                 if visitor.personalInformation[.lastName] == nil { throw RegistrationError.missingLastName }

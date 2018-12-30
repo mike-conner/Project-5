@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     var entrantTypeIndex: Int = 0
     var entrantSubTypeIndex: Int = 0
     
+    private var datePicker: UIDatePicker?
+    
     @IBOutlet weak var dateOfBirthtTextField: UITextField!
     @IBOutlet weak var SSNTextField: UITextField!
     @IBOutlet weak var projectNumberTextField: UITextField!
@@ -34,6 +36,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         entrantTypeSegmentedControl.selectedSegmentIndex = 0
         entrantSubTypeSegmentedControl.removeAllSegments()
         entrantSubTypeSegmentedControl.insertSegment(withTitle: "Classic", at: 0, animated: false)
@@ -47,6 +50,17 @@ class ViewController: UIViewController {
         entrantTypeSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: entrantTypeFont], for: .normal)
         entrantSubTypeSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: entrantSubTypeFont], for: .normal)
         setUpRegistrationFields()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.viewTapped(gestureRecognizer:)))
+        
+        view.addGestureRecognizer(tapGesture)
+        
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(ViewController.dateChanged(datePicker:)), for: .valueChanged)
+        
+        dateOfBirthtTextField.inputView = datePicker
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -412,6 +426,17 @@ class ViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        dateOfBirthtTextField.text = dateFormatter.string(from: datePicker.date)
     }
     
 }
