@@ -624,5 +624,4 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         dateOfBirthtTextField.text = dateFormatter.string(from: datePicker.date)
     }
-    
 }

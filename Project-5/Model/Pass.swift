@@ -101,9 +101,29 @@ class Pass {
             }
             discount = [.food: 0, .merchandise: 0]
         case .vendor:
-            areaAccess.append(.amusementArea)
-            areaAccess.append(.kitchenArea)
-            rideAccess.append(.canNotSkipLines)
+            switch (visitor.personalInformation[.company]) as? String {
+            case "Acme":
+                areaAccess.append(.kitchenArea)
+                rideAccess.append(.canNotRide)
+            case "Orkin":
+                areaAccess.append(.amusementArea)
+                areaAccess.append(.rideControlArea)
+                areaAccess.append(.kitchenArea)
+                rideAccess.append(.canNotRide)
+            case "Fedex":
+                areaAccess.append(.maintenanceArea)
+                areaAccess.append(.officeArea)
+                rideAccess.append(.canNotRide)
+            case "NW Electrical":
+                areaAccess.append(.amusementArea)
+                areaAccess.append(.rideControlArea)
+                areaAccess.append(.kitchenArea)
+                areaAccess.append(.maintenanceArea)
+                areaAccess.append(.officeArea)
+                rideAccess.append(.canNotRide)
+            default:
+                rideAccess.append(.canNotRide)
+            }
             discount = [.food: 0, .merchandise: 0]
         case .manager:
             areaAccess.append(.amusementArea)
