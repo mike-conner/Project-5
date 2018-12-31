@@ -36,7 +36,18 @@ class EntrantPassViewController: UIViewController {
             default:
                 break
             }
-        } else {
+        } /*else if newVisitor.entrantType = .vendor {
+            switch newVisitor.personalInformation[PersonalInformation.company] {
+            case ("Shift Manager" as String):
+                passType.text = "Shift Manager"
+            case ("General Manager" as String):
+                passType.text = "General Manager"
+            case ("Senior Manager" as String):
+                passType.text = "Senior Manager"
+            default:
+                break
+            }
+        } */else {
             passType.text = newVisitor.entrantType.rawValue
         }
         rideAccess.text = entrantPass.rideAccess[0].rawValue

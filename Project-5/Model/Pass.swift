@@ -19,20 +19,13 @@ enum AreaAccess: String {
 enum RideAccess: String {
     case canNotSkipLines = "Unlimited rides, no skipping lines"
     case canSkipLines = "Unlimited rides, can skip lines"
+    case canNotRide = "Cannot ride rides"
 }
 
 // List the different types of discounts offered.
 enum Discount {
     case food
     case merchandise
-}
-
-enum Projects: Int {
-    case P1001 = 1001
-    case P1002 = 1002
-    case P1003 = 1003
-    case P2001 = 2001
-    case P2002 = 2002
 }
 
 // Class declaration for Pass
@@ -79,9 +72,33 @@ class Pass {
             rideAccess.append(.canNotSkipLines)
             discount = [.food: 15, .merchandise: 25]
         case .contract:
-            areaAccess.append(.amusementArea)
-            areaAccess.append(.kitchenArea)
-            rideAccess.append(.canNotSkipLines)
+            switch (visitor.personalInformation[.projectNumber]) as? String {
+            case "1001":
+                areaAccess.append(.amusementArea)
+                areaAccess.append(.rideControlArea)
+                rideAccess.append(.canNotRide)
+            case "1002":
+                areaAccess.append(.amusementArea)
+                areaAccess.append(.rideControlArea)
+                areaAccess.append(.maintenanceArea)
+                rideAccess.append(.canNotRide)
+            case "1003":
+                areaAccess.append(.amusementArea)
+                areaAccess.append(.rideControlArea)
+                areaAccess.append(.kitchenArea)
+                areaAccess.append(.maintenanceArea)
+                areaAccess.append(.officeArea)
+                rideAccess.append(.canNotRide)
+            case "2001":
+                areaAccess.append(.officeArea)
+                rideAccess.append(.canNotRide)
+            case "2002":
+                areaAccess.append(.kitchenArea)
+                areaAccess.append(.maintenanceArea)
+                rideAccess.append(.canNotRide)
+            default:
+                break
+            }
             discount = [.food: 0, .merchandise: 0]
         case .vendor:
             areaAccess.append(.amusementArea)

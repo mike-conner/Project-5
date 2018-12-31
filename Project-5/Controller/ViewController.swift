@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var entrantTypeIndex: Int = 0
     var entrantSubTypeIndex: Int = 0
     let projectNumbers = ["1001", "1002", "1003", "2001", "2002"]
+    let companyNames = ["Acme", "Orkin", "Fedex", "NW Electrical"]
     
     private var datePicker: UIDatePicker?
     
@@ -62,8 +63,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         dateOfBirthtTextField.inputView = datePicker
         
         let projectPicker = UIPickerView()
+        projectPicker.tag = 0
         projectPicker.delegate = self
         projectNumberTextField.inputView = projectPicker
+        
+        let companyPicker = UIPickerView()
+        companyPicker.tag = 1
+        companyPicker.delegate = self
+        companyTextField.inputView = companyPicker
         
         SSNTextField.delegate = self
         
@@ -121,7 +128,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             if let userEnteredCity = cityTextField.text { newVisitor.personalInformation[.city] = userEnteredCity }
             if let userEnteredState = stateTextField.text { newVisitor.personalInformation[.state] = userEnteredState }
             if let userEnteredZipCode = zipCodeTextField.text { newVisitor.personalInformation[.zipCode] = userEnteredZipCode }
-            if let userEnteredProjectNumber = projectNumberTextField.text { newVisitor.personalInformation[.projectNumber] = userEnteredProjectNumber }
+            if let userEnteredProjectNumber = projectNumberTextField.text { newVisitor.personalInformation[.projectNumber] = userEnteredProjectNumber as String}
         case "10", "11", "12", "20", "21", "22":
             if entrantType == "10" { newVisitor.entrantType = .foodServices }
             else if entrantType == "11" { newVisitor.entrantType = .rideServices }
@@ -576,15 +583,28 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return projectNumbers.count
+        if pickerView.tag == 0 {
+            return projectNumbers.count
+        } else {
+            return companyNames.count
+        }
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return projectNumbers[row]
+        if pickerView.tag == 0 {
+            return projectNumbers[row]
+        } else {
+            return companyNames[row]
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        projectNumberTextField.text = projectNumbers[row]
+        if pickerView.tag == 0 {
+            projectNumberTextField.text = projectNumbers[row]
+        } else {
+            companyTextField.text = companyNames[row]
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -605,7 +625,4 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         dateOfBirthtTextField.text = dateFormatter.string(from: datePicker.date)
     }
     
-    
-    
 }
-
