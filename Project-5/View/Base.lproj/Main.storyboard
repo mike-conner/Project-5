@@ -684,7 +684,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63L-2G-ru6">
                                         <rect key="frame" x="234" y="356.5" width="300" height="75"/>
-                                        <color key="backgroundColor" red="0.79565149545669556" green="0.77480828762054443" blue="0.80987352132797241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="4qF-XB-67N"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="PEv-3o-AOZ"/>

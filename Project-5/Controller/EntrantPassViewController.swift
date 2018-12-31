@@ -112,8 +112,10 @@ class EntrantPassViewController: UIViewController {
         testResults.backgroundColor = UIColor.blue
         if entrantPass.rideAccess[0] == .canNotSkipLines {
             testResults.text = "You can ride all rides but you are not able to skip any lines.\rYou get a food discount of \(entrantPass.discount[.food] ?? 0)%.\rYou get a merchandise discount of \(entrantPass.discount[.merchandise] ?? 0)%."
-        } else {
+        } else if entrantPass.rideAccess[0] == .canSkipLines{
             testResults.text = "You can ride all rides and you can skip all of the lines.\rYou get a food discount of \(entrantPass.discount[.food] ?? 0)%.\rYou get a merchandise discount of \(entrantPass.discount[.merchandise] ?? 0)%."
+        } else {
+            testResults.text = "You cannot ride any of the rides.\rYou get a food discount of \(entrantPass.discount[.food] ?? 0)%.\rYou get a merchandise discount of \(entrantPass.discount[.merchandise] ?? 0)%."
         }
     }
     
