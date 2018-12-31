@@ -8,13 +8,14 @@
 import Foundation
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     var newVisitor = Visitor(entrantType: .classicGuest, personalInformation: [:])
     var entrantPass = Pass(visitor: Visitor(entrantType: .classicGuest, personalInformation: [:]))
     
     var entrantTypeIndex: Int = 0
     var entrantSubTypeIndex: Int = 0
+    let projectNumbers = ["1001", "1002", "1003", "2001", "2002"]
     
     private var datePicker: UIDatePicker?
     
@@ -58,8 +59,13 @@ class ViewController: UIViewController {
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
         datePicker?.addTarget(self, action: #selector(ViewController.dateChanged(datePicker:)), for: .valueChanged)
-        
         dateOfBirthtTextField.inputView = datePicker
+        
+        let projectPicker = UIPickerView()
+        projectPicker.delegate = self
+        projectNumberTextField.inputView = projectPicker
+        
+        SSNTextField.delegate = self
         
     }
     
@@ -563,6 +569,29 @@ class ViewController: UIViewController {
         }
         
         return (errorTitle, errorMessage)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return projectNumbers.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return projectNumbers[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        projectNumberTextField.text = projectNumbers[row]
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = "0123456789-"
+        let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
+        let typedCharacterSet = CharacterSet(charactersIn: string)
+        return allowedCharacterSet.isSuperset(of: typedCharacterSet)
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){

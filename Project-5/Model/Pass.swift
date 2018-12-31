@@ -27,6 +27,14 @@ enum Discount {
     case merchandise
 }
 
+enum Projects: Int {
+    case P1001 = 1001
+    case P1002 = 1002
+    case P1003 = 1003
+    case P2001 = 2001
+    case P2002 = 2002
+}
+
 // Class declaration for Pass
 class Pass {
     var entrantsName: String = ""
