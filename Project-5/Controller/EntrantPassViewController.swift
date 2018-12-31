@@ -25,7 +25,20 @@ class EntrantPassViewController: UIViewController {
         super.viewDidLoad()
         
         entrantName.text = entrantPass.entrantsName
-        passType.text = newVisitor.entrantType.rawValue
+        if newVisitor.entrantType == .manager {
+            switch newVisitor.personalInformation[PersonalInformation.managementTier] {
+            case ("Shift Manager" as String):
+                passType.text = "Shift Manager"
+            case ("General Manager" as String):
+                passType.text = "General Manager"
+            case ("Senior Manager" as String):
+                passType.text = "Senior Manager"
+            default:
+                break
+            }
+        } else {
+            passType.text = newVisitor.entrantType.rawValue
+        }
         rideAccess.text = entrantPass.rideAccess[0].rawValue
         foodDiscount.text = "\(entrantPass.discount[.food] ?? 0)% Food Discount"
         merchDiscount.text = "\(entrantPass.discount[.merchandise] ?? 0)% Merchandise Discount"
