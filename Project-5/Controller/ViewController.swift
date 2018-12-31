@@ -5,7 +5,7 @@
 //  Created by Mike Conner on 12/3/18.
 //  Copyright © 2018 Mike Conner. All rights reserved.
 //
-
+import Foundation
 import UIKit
 
 class ViewController: UIViewController {
@@ -87,7 +87,6 @@ class ViewController: UIViewController {
     
     @IBAction func generatePassButton(_ sender: Any) {
         
-    
         let entrantType: String = String(entrantTypeIndex) + String(entrantSubTypeIndex)
         
         switch entrantType {
@@ -151,13 +150,13 @@ class ViewController: UIViewController {
         }
         
         if (try? newVisitor.checkRegistrationForErrors(visitor: newVisitor)) == false {
-            
-            let alert = UIAlertController(title: "Missing First Name", message: "Please enter in a first name.", preferredStyle: .alert)
+            let alertNotification = checkRegistrationFormForCompleteness(entrantType: entrantType)
+            let alert = UIAlertController(title: alertNotification.errorTitle, message: alertNotification.errorMessage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            
             return
         }
+        
         entrantPass = Pass(visitor: newVisitor)
         
         performSegue(withIdentifier: "entrantPassSeque", sender: self)
@@ -178,10 +177,13 @@ class ViewController: UIViewController {
         switch entrantType {
         case "00", "01":
             print("There are no fields to populate!")
+            let alert = UIAlertController(title: "Nothing To Populate", message: "There are no available fields to populate.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         case "02":
-            dateOfBirthtTextField.text = "05/23/2015"       //need to change
+            dateOfBirthtTextField.text = randomDOB.randomElement()
         case "03":
-            dateOfBirthtTextField.text = "05/23/2015"       //need to change
+            dateOfBirthtTextField.text = randomDOB.randomElement()
             firstnameTextField.text = randomFirstName.randomElement()
             lastNameTextField.text = randomLastName.randomElement()
             streetAddressTextField.text = randomStreetAddress.randomElement()
@@ -189,7 +191,7 @@ class ViewController: UIViewController {
             stateTextField.text = randomState.randomElement()
             zipCodeTextField.text = randomZipCode.randomElement()
         case "13":
-            dateOfBirthtTextField.text = "05/23/2015"       //need to change
+            dateOfBirthtTextField.text = randomDOB.randomElement()
             SSNTextField.text = randomSSN.randomElement()
             firstnameTextField.text = randomFirstName.randomElement()
             lastNameTextField.text = randomLastName.randomElement()
@@ -197,9 +199,9 @@ class ViewController: UIViewController {
             cityTextField.text = randomCity.randomElement()
             stateTextField.text = randomState.randomElement()
             zipCodeTextField.text = randomZipCode.randomElement()
-            projectNumberTextField.text = "9999"            // need to change
+            projectNumberTextField.text = randomProject.randomElement()
         case "10", "11", "12", "20", "21", "22":
-            dateOfBirthtTextField.text = "05/23/2015"       //need to change
+            dateOfBirthtTextField.text = randomDOB.randomElement()
             SSNTextField.text = randomSSN.randomElement()
             firstnameTextField.text = randomFirstName.randomElement()
             lastNameTextField.text = randomLastName.randomElement()
@@ -208,11 +210,11 @@ class ViewController: UIViewController {
             stateTextField.text = randomState.randomElement()
             zipCodeTextField.text = randomZipCode.randomElement()
         case "04":
-            dateOfBirthtTextField.text = "05/23/2015"       //need to change
+            dateOfBirthtTextField.text = randomDOB.randomElement()
             firstnameTextField.text = randomFirstName.randomElement()
             lastNameTextField.text = randomLastName.randomElement()
         case "30":
-            dateOfBirthtTextField.text = "05/23/2015"       //need to change
+            dateOfBirthtTextField.text = randomDOB.randomElement()
             firstnameTextField.text = randomFirstName.randomElement()
             lastNameTextField.text = randomLastName.randomElement()
             companyTextField.text = randomCompany.randomElement()
@@ -441,6 +443,126 @@ class ViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    func checkRegistrationFormForCompleteness(entrantType: String) -> (errorTitle: String, errorMessage: String) {
+        var errorTitle: String = "Error"
+        var errorMessage: String = "Please recheck your entered information."
+        
+        switch entrantType {
+        case "02":
+            if dateOfBirthtTextField.text == "" {
+                errorTitle = "Missing Date Of Birth"
+                errorMessage = "Please enter a date of birth"
+            }
+        case "03":
+            if dateOfBirthtTextField.text == "" {
+                errorTitle = "Missing Date Of Birth"
+                errorMessage = "Please enter a date of birth"
+            } else if firstnameTextField.text == "" {
+                errorTitle = "Missing First Name"
+                errorMessage = "Please enter a first name."
+            } else if lastNameTextField.text == "" {
+                errorTitle = "Missing Last Name"
+                errorMessage = "Please enter a last name."
+            } else if streetAddressTextField.text == "" {
+                errorTitle = "Missing Street Address"
+                errorMessage = "Please enter a street address."
+            } else if cityTextField.text == "" {
+                errorTitle = "Missing City"
+                errorMessage = "Please enter a city."
+            } else if stateTextField.text == "" {
+                errorTitle = "Missing State"
+                errorMessage = "Please enter a state."
+            } else if zipCodeTextField.text == "" {
+                errorTitle = "Missing Zipcode"
+                errorMessage = "Please enter a zipcode."
+            }
+        case "13":
+            if dateOfBirthtTextField.text == "" {
+                errorTitle = "Missing Date Of Birth"
+                errorMessage = "Please enter a date of birth"
+            } else if SSNTextField.text == "" {
+                errorTitle = "Missing Social Security Number"
+                errorMessage = "Please enter a social security number."
+            } else if projectNumberTextField.text == "" {
+                errorTitle = "Missing Project Number"
+                errorMessage = "Please enter a project number."
+            } else if firstnameTextField.text == "" {
+                errorTitle = "Missing First Name"
+                errorMessage = "Please enter a first name."
+            } else if lastNameTextField.text == "" {
+                errorTitle = "Missing Last Name"
+                errorMessage = "Please enter a last name."
+            } else if streetAddressTextField.text == "" {
+                errorTitle = "Missing Street Address"
+                errorMessage = "Please enter a street address."
+            } else if cityTextField.text == "" {
+                errorTitle = "Missing City"
+                errorMessage = "Please enter a city."
+            } else if stateTextField.text == "" {
+                errorTitle = "Missing State"
+                errorMessage = "Please enter a state."
+            } else if zipCodeTextField.text == "" {
+                errorTitle = "Missing Zipcode"
+                errorMessage = "Please enter a zipcode."
+            }
+        case "10", "11", "12", "20", "21", "22":
+            if dateOfBirthtTextField.text == "" {
+                errorTitle = "Missing Date Of Birth"
+                errorMessage = "Please enter a date of birth"
+            } else if SSNTextField.text == "" {
+                errorTitle = "Missing Social Security Number"
+                errorMessage = "Please enter a social security number."
+            } else if firstnameTextField.text == "" {
+                errorTitle = "Missing First Name"
+                errorMessage = "Please enter a first name."
+            } else if lastNameTextField.text == "" {
+                errorTitle = "Missing Last Name"
+                errorMessage = "Please enter a last name."
+            } else if streetAddressTextField.text == "" {
+                errorTitle = "Missing Street Address"
+                errorMessage = "Please enter a street address."
+            } else if cityTextField.text == "" {
+                errorTitle = "Missing City"
+                errorMessage = "Please enter a city."
+            } else if stateTextField.text == "" {
+                errorTitle = "Missing State"
+                errorMessage = "Please enter a state."
+            } else if zipCodeTextField.text == "" {
+                errorTitle = "Missing Zipcode"
+                errorMessage = "Please enter a zipcode."
+            }
+        case "04":
+            if dateOfBirthtTextField.text == "" {
+                errorTitle = "Missing Date Of Birth"
+                errorMessage = "Please enter a date of birth"
+            } else if firstnameTextField.text == "" {
+                errorTitle = "Missing First Name"
+                errorMessage = "Please enter a first name."
+            } else if lastNameTextField.text == "" {
+                errorTitle = "Missing Last Name"
+                errorMessage = "Please enter a last name."
+            }
+        case "30":
+            if dateOfBirthtTextField.text == "" {
+                errorTitle = "Missing Date Of Birth"
+                errorMessage = "Please enter a date of birth"
+            } else if firstnameTextField.text == "" {
+                errorTitle = "Missing First Name"
+                errorMessage = "Please enter a first name."
+            } else if lastNameTextField.text == "" {
+                errorTitle = "Missing Last Name"
+                errorMessage = "Please enter a last name."
+            } else if companyTextField.text == "" {
+                errorTitle = "Missing Company Name"
+                errorMessage = "Please enter a company name."
+            }
+        default:
+            break
+        }
+        
+        return (errorTitle, errorMessage)
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
