@@ -470,109 +470,161 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             if dateOfBirthtTextField.text == "" {
                 errorTitle = "Missing Date Of Birth"
                 errorMessage = "Please enter a date of birth"
+                dateOfBirthtTextField.text = ""
             }
         case "03":
             if dateOfBirthtTextField.text == "" {
                 errorTitle = "Missing Date Of Birth"
                 errorMessage = "Please enter a date of birth"
+                dateOfBirthtTextField.text = ""
             } else if firstnameTextField.text == "" {
                 errorTitle = "Missing First Name"
                 errorMessage = "Please enter a first name."
+                firstnameTextField.text = ""
             } else if lastNameTextField.text == "" {
                 errorTitle = "Missing Last Name"
                 errorMessage = "Please enter a last name."
+                lastNameTextField.text = ""
             } else if streetAddressTextField.text == "" {
                 errorTitle = "Missing Street Address"
                 errorMessage = "Please enter a street address."
+                streetAddressTextField.text = ""
             } else if cityTextField.text == "" {
                 errorTitle = "Missing City"
                 errorMessage = "Please enter a city."
+                cityTextField.text = ""
             } else if stateTextField.text == "" {
                 errorTitle = "Missing State"
                 errorMessage = "Please enter a state."
+                stateTextField.text = ""
             } else if zipCodeTextField.text == "" {
                 errorTitle = "Missing Zipcode"
                 errorMessage = "Please enter a zipcode."
+                zipCodeTextField.text = ""
+            } else if zipCodeTextField.text?.count ?? 0 < 5 {
+                errorTitle = "Incorrect Zipcode Format"
+                errorMessage = "Please re-enter in a zipcode in the correct format."
+                zipCodeTextField.text = ""
             }
         case "13":
             if dateOfBirthtTextField.text == "" {
                 errorTitle = "Missing Date Of Birth"
                 errorMessage = "Please enter a date of birth"
+                firstnameTextField.text = ""
             } else if SSNTextField.text == "" {
                 errorTitle = "Missing Social Security Number"
                 errorMessage = "Please enter a social security number."
+                SSNTextField.text = ""
+            } else if SSNTextField.text?.count ?? 0 < 11 {
+                errorTitle = "Incorrect SSN Format"
+                errorMessage = "Please re-enter in a SSN in the correct format."
+                SSNTextField.text = ""
             } else if projectNumberTextField.text == "" {
                 errorTitle = "Missing Project Number"
                 errorMessage = "Please enter a project number."
+                projectNumberTextField.text = ""
             } else if firstnameTextField.text == "" {
                 errorTitle = "Missing First Name"
                 errorMessage = "Please enter a first name."
+                firstnameTextField.text = ""
             } else if lastNameTextField.text == "" {
                 errorTitle = "Missing Last Name"
                 errorMessage = "Please enter a last name."
+                lastNameTextField.text = ""
             } else if streetAddressTextField.text == "" {
                 errorTitle = "Missing Street Address"
                 errorMessage = "Please enter a street address."
+                streetAddressTextField.text = ""
             } else if cityTextField.text == "" {
                 errorTitle = "Missing City"
                 errorMessage = "Please enter a city."
+                cityTextField.text = ""
             } else if stateTextField.text == "" {
                 errorTitle = "Missing State"
                 errorMessage = "Please enter a state."
+                stateTextField.text = ""
             } else if zipCodeTextField.text == "" {
                 errorTitle = "Missing Zipcode"
                 errorMessage = "Please enter a zipcode."
+                zipCodeTextField.text = ""
+            } else if zipCodeTextField.text?.count ?? 0 < 5 {
+                errorTitle = "Incorrect Zipcode Format"
+                errorMessage = "Please re-enter in a zipcode in the correct format."
+                zipCodeTextField.text = ""
             }
         case "10", "11", "12", "20", "21", "22":
             if dateOfBirthtTextField.text == "" {
                 errorTitle = "Missing Date Of Birth"
                 errorMessage = "Please enter a date of birth"
+                dateOfBirthtTextField.text = ""
             } else if SSNTextField.text == "" {
                 errorTitle = "Missing Social Security Number"
                 errorMessage = "Please enter a social security number."
+                SSNTextField.text = ""
+            } else if SSNTextField.text?.count ?? 0 < 11 {
+                errorTitle = "Incorrect SSN Format"
+                errorMessage = "Please re-enter in a SSN in the correct format."
+                SSNTextField.text = ""
             } else if firstnameTextField.text == "" {
                 errorTitle = "Missing First Name"
                 errorMessage = "Please enter a first name."
+                firstnameTextField.text = ""
             } else if lastNameTextField.text == "" {
                 errorTitle = "Missing Last Name"
                 errorMessage = "Please enter a last name."
+                lastNameTextField.text = ""
             } else if streetAddressTextField.text == "" {
                 errorTitle = "Missing Street Address"
                 errorMessage = "Please enter a street address."
+                streetAddressTextField.text = ""
             } else if cityTextField.text == "" {
                 errorTitle = "Missing City"
                 errorMessage = "Please enter a city."
+                cityTextField.text = ""
             } else if stateTextField.text == "" {
                 errorTitle = "Missing State"
                 errorMessage = "Please enter a state."
+                stateTextField.text = ""
             } else if zipCodeTextField.text == "" {
                 errorTitle = "Missing Zipcode"
                 errorMessage = "Please enter a zipcode."
+                zipCodeTextField.text = ""
+            } else if zipCodeTextField.text?.count ?? 0 < 5 {
+                errorTitle = "Incorrect Zipcode Format"
+                errorMessage = "Please re-enter in a zipcode in the correct format."
+                zipCodeTextField.text = ""
             }
         case "04":
             if dateOfBirthtTextField.text == "" {
                 errorTitle = "Missing Date Of Birth"
                 errorMessage = "Please enter a date of birth"
+                dateOfBirthtTextField.text = ""
             } else if firstnameTextField.text == "" {
                 errorTitle = "Missing First Name"
                 errorMessage = "Please enter a first name."
+                firstnameTextField.text = ""
             } else if lastNameTextField.text == "" {
                 errorTitle = "Missing Last Name"
                 errorMessage = "Please enter a last name."
+                lastNameTextField.text = ""
             }
         case "30":
             if dateOfBirthtTextField.text == "" {
                 errorTitle = "Missing Date Of Birth"
                 errorMessage = "Please enter a date of birth"
+                dateOfBirthtTextField.text = ""
             } else if firstnameTextField.text == "" {
                 errorTitle = "Missing First Name"
                 errorMessage = "Please enter a first name."
+                firstnameTextField.text = ""
             } else if lastNameTextField.text == "" {
                 errorTitle = "Missing Last Name"
                 errorMessage = "Please enter a last name."
+                lastNameTextField.text = ""
             } else if companyTextField.text == "" {
                 errorTitle = "Missing Company Name"
                 errorMessage = "Please enter a company name."
+                companyTextField.text = ""
             }
         default:
             break

@@ -47,7 +47,9 @@ enum RegistrationError: Error {
     case missingState
     case incorrectStateName
     case missingZipCode
+    case incorrectZipCode
     case missingSSN
+    case incorrectSSN
     case missingCompany
     case missingDateOfBirth
     case missingProjectNumber
@@ -100,6 +102,7 @@ struct Visitor: SetUpVisitor {
             case .foodServices, .rideServices, .maintenance:
                 if visitor.personalInformation[.dateOfBirth] == nil || (visitor.personalInformation[.dateOfBirth]) as? String == "" { throw RegistrationError.missingDateOfBirth }
                 if visitor.personalInformation[.SSN] == nil || (visitor.personalInformation[.SSN]) as? String == "" { throw RegistrationError.missingSSN }
+                if let SSNCount = visitor.personalInformation[.SSN] as? String { if SSNCount.count != 11 { throw RegistrationError.incorrectSSN } }
                 if visitor.personalInformation[.firstName] == nil || (visitor.personalInformation[.firstName]) as? String == "" { throw RegistrationError.missingFirstName }
                 if visitor.personalInformation[.lastName] == nil || (visitor.personalInformation[.lastName]) as? String == "" { throw RegistrationError.missingLastName }
                 if visitor.personalInformation[.streetAddress] == nil || (visitor.personalInformation[.streetAddress]) as? String == "" { throw RegistrationError.missingStreetAddress }
@@ -107,10 +110,12 @@ struct Visitor: SetUpVisitor {
                 if visitor.personalInformation[.state] == nil || (visitor.personalInformation[.state]) as? String == "" { throw RegistrationError.missingState }
                 if (!states.contains(visitor.personalInformation[.state] as? String ?? "")) { throw RegistrationError.incorrectStateName }
                 if visitor.personalInformation[.zipCode] == nil || (visitor.personalInformation[.zipCode]) as? String == "" { throw RegistrationError.missingZipCode }
+                if let zipCodeCount = visitor.personalInformation[.zipCode] as? String { if zipCodeCount.count != 5 { throw RegistrationError.incorrectZipCode } } 
                 return true
             case .contract:
                 if visitor.personalInformation[.dateOfBirth] == nil || (visitor.personalInformation[.dateOfBirth]) as? String == "" { throw RegistrationError.missingDateOfBirth }
                 if visitor.personalInformation[.SSN] == nil || (visitor.personalInformation[.SSN]) as? String == "" { throw RegistrationError.missingSSN }
+                if let SSNCount = visitor.personalInformation[.SSN] as? String { if SSNCount.count != 11 { throw RegistrationError.incorrectSSN } }
                 if visitor.personalInformation[.projectNumber] == nil || (visitor.personalInformation[.projectNumber]) as? String == "" { throw RegistrationError.missingProjectNumber }
                 if visitor.personalInformation[.firstName] == nil || (visitor.personalInformation[.firstName]) as? String == "" { throw RegistrationError.missingFirstName }
                 if visitor.personalInformation[.lastName] == nil || (visitor.personalInformation[.lastName]) as? String == "" { throw RegistrationError.missingLastName }
@@ -119,10 +124,12 @@ struct Visitor: SetUpVisitor {
                 if visitor.personalInformation[.state] == nil || (visitor.personalInformation[.state]) as? String == "" { throw RegistrationError.missingState }
                 if (!states.contains(visitor.personalInformation[.state] as? String ?? "")) { throw RegistrationError.incorrectStateName }
                 if visitor.personalInformation[.zipCode] == nil || (visitor.personalInformation[.zipCode]) as? String == "" { throw RegistrationError.missingZipCode }
+                if let zipCodeCount = visitor.personalInformation[.zipCode] as? String { if zipCodeCount.count != 5 { throw RegistrationError.incorrectZipCode } }
                 return true
             case .manager:
                 if visitor.personalInformation[.dateOfBirth] == nil || (visitor.personalInformation[.dateOfBirth]) as? String == "" { throw RegistrationError.missingDateOfBirth }
                 if visitor.personalInformation[.SSN] == nil || (visitor.personalInformation[.SSN]) as? String == "" { throw RegistrationError.missingSSN }
+                if let SSNCount = visitor.personalInformation[.SSN] as? String { if SSNCount.count != 11 { throw RegistrationError.incorrectSSN } }
                 if visitor.personalInformation[.firstName] == nil || (visitor.personalInformation[.firstName]) as? String == "" { throw RegistrationError.missingFirstName }
                 if visitor.personalInformation[.lastName] == nil || (visitor.personalInformation[.lastName]) as? String == "" { throw RegistrationError.missingLastName }
                 if visitor.personalInformation[.streetAddress] == nil || (visitor.personalInformation[.streetAddress]) as? String == "" { throw RegistrationError.missingStreetAddress }
@@ -130,6 +137,7 @@ struct Visitor: SetUpVisitor {
                 if visitor.personalInformation[.state] == nil || (visitor.personalInformation[.state]) as? String == "" { throw RegistrationError.missingState }
                 if (!states.contains(visitor.personalInformation[.state] as? String ?? "")) { throw RegistrationError.incorrectStateName }
                 if visitor.personalInformation[.zipCode] == nil || (visitor.personalInformation[.zipCode]) as? String == "" { throw RegistrationError.missingZipCode }
+                if let zipCodeCount = visitor.personalInformation[.zipCode] as? String { if zipCodeCount.count != 5 { throw RegistrationError.incorrectZipCode } }
                 return true
             case .season:
                 if visitor.personalInformation[.dateOfBirth] == nil || (visitor.personalInformation[.dateOfBirth]) as? String == "" { throw RegistrationError.missingDateOfBirth }
@@ -140,6 +148,7 @@ struct Visitor: SetUpVisitor {
                 if visitor.personalInformation[.state] == nil || (visitor.personalInformation[.state]) as? String == "" { throw RegistrationError.missingState }
                 if (!states.contains(visitor.personalInformation[.state] as? String ?? "")) { throw RegistrationError.incorrectStateName }
                 if visitor.personalInformation[.zipCode] == nil || (visitor.personalInformation[.zipCode]) as? String == "" { throw RegistrationError.missingZipCode }
+                if let zipCodeCount = visitor.personalInformation[.zipCode] as? String { if zipCodeCount.count != 5 { throw RegistrationError.incorrectZipCode } }
                 return true
             case .senior:
                 if visitor.personalInformation[.dateOfBirth] == nil || (visitor.personalInformation[.dateOfBirth]) as? String == "" { throw RegistrationError.missingDateOfBirth }
@@ -161,7 +170,9 @@ struct Visitor: SetUpVisitor {
         catch RegistrationError.missingState { print("Please enter in a state.") }
         catch RegistrationError.incorrectStateName { print("Please enter in a correct state.") }
         catch RegistrationError.missingZipCode { print("Please enter in a zipcode.") }
+        catch RegistrationError.incorrectZipCode { print("Please enter in a zipcode in the correct format.") }
         catch RegistrationError.missingSSN { print("Please enter in a social security number.") }
+        catch RegistrationError.incorrectSSN { print("Please enter in a social security number in the correct format.") }
         catch RegistrationError.missingCompany { print("Please enter in a company name.")}
         catch RegistrationError.missingDateOfBirth { print("Please enter in a date of birth.") }
         catch RegistrationError.missingProjectNumber { print("Please enter in a Project Number.") }
