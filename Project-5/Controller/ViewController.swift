@@ -73,6 +73,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         companyTextField.inputView = companyPicker
         
         SSNTextField.delegate = self
+        SSNTextField.tag = 0
+        zipCodeTextField.delegate = self
+        zipCodeTextField.tag = 1
         
     }
     
@@ -608,10 +611,29 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let allowedCharacters = "0123456789-"
-        let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
-        let typedCharacterSet = CharacterSet(charactersIn: string)
-        return allowedCharacterSet.isSuperset(of: typedCharacterSet)
+        if textField.tag == 0 {
+            while textField.text?.count ?? 0 <= 11  {
+                let allowedCharacters = "0123456789-"
+                let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
+                let typedCharacterSet = CharacterSet(charactersIn: string)
+                if textField.text?.count ?? 0 > 10 {
+                    textField.text?.removeLast()
+                }
+                return allowedCharacterSet.isSuperset(of: typedCharacterSet)
+            }
+            return false
+        } else {
+            while textField.text?.count ?? 0 <= 5  {
+                let allowedCharacters = "0123456789"
+                let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
+                let typedCharacterSet = CharacterSet(charactersIn: string)
+                if textField.text?.count ?? 0 > 4 {
+                    textField.text?.removeLast()
+                }
+                return allowedCharacterSet.isSuperset(of: typedCharacterSet)
+            }
+            return false
+        }
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
