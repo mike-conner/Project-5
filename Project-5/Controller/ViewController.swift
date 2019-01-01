@@ -15,10 +15,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     var entrantTypeIndex: Int = 0
     var entrantSubTypeIndex: Int = 0
-    let projectNumbers = ["1001", "1002", "1003", "2001", "2002"]
-    let companyNames = ["Acme", "Orkin", "Fedex", "NW Electrical"]
-    
-    private var datePicker: UIDatePicker?
     
     @IBOutlet weak var dateOfBirthtTextField: UITextField!
     @IBOutlet weak var SSNTextField: UITextField!
@@ -57,11 +53,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         view.addGestureRecognizer(tapGesture)
         
-        datePicker = UIDatePicker()
-        datePicker?.datePickerMode = .date
-        datePicker?.addTarget(self, action: #selector(ViewController.dateChanged(datePicker:)), for: .valueChanged)
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.addTarget(self, action: #selector(ViewController.dateChanged(datePicker:)), for: .valueChanged)
         dateOfBirthtTextField.inputView = datePicker
+        dateOfBirthtTextField.delegate = self
+        dateOfBirthtTextField.tag = 2
         
+      
         let projectPicker = UIPickerView()
         projectPicker.tag = 0
         projectPicker.delegate = self
@@ -674,7 +673,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 return allowedCharacterSet.isSuperset(of: typedCharacterSet)
             }
             return false
-        } else {
+        } else if textField.tag == 1 {
             while textField.text?.count ?? 0 <= 5  {
                 let allowedCharacters = "0123456789"
                 let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
@@ -685,6 +684,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 return allowedCharacterSet.isSuperset(of: typedCharacterSet)
             }
             return false
+        } else {
+            let allowedCharacters = ""
+            let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
+            let typedCharacterSet = CharacterSet(charactersIn: string)
+            return allowedCharacterSet.isSuperset(of: typedCharacterSet)
         }
     }
     
