@@ -1,6 +1,6 @@
 //
 //  Visitor.swift
-//  Project-4
+//  Project-5
 //
 //  Created by Mike Conner on 12/7/18.
 //  Copyright © 2018 Mike Conner. All rights reserved.
@@ -45,6 +45,7 @@ enum RegistrationError: Error {
     case missingStreetAddress
     case missingCity
     case missingState
+    case incorrectStateName
     case missingZipCode
     case missingSSN
     case missingCompany
@@ -104,6 +105,7 @@ struct Visitor: SetUpVisitor {
                 if visitor.personalInformation[.streetAddress] == nil || (visitor.personalInformation[.streetAddress]) as? String == "" { throw RegistrationError.missingStreetAddress }
                 if visitor.personalInformation[.city] == nil || (visitor.personalInformation[.city]) as? String == "" { throw RegistrationError.missingCity }
                 if visitor.personalInformation[.state] == nil || (visitor.personalInformation[.state]) as? String == "" { throw RegistrationError.missingState }
+                if (!states.contains(visitor.personalInformation[.state] as? String ?? "")) { throw RegistrationError.incorrectStateName }
                 if visitor.personalInformation[.zipCode] == nil || (visitor.personalInformation[.zipCode]) as? String == "" { throw RegistrationError.missingZipCode }
                 return true
             case .contract:
@@ -115,6 +117,7 @@ struct Visitor: SetUpVisitor {
                 if visitor.personalInformation[.streetAddress] == nil || (visitor.personalInformation[.streetAddress]) as? String == "" { throw RegistrationError.missingStreetAddress }
                 if visitor.personalInformation[.city] == nil || (visitor.personalInformation[.city]) as? String == "" { throw RegistrationError.missingCity }
                 if visitor.personalInformation[.state] == nil || (visitor.personalInformation[.state]) as? String == "" { throw RegistrationError.missingState }
+                if (!states.contains(visitor.personalInformation[.state] as? String ?? "")) { throw RegistrationError.incorrectStateName }
                 if visitor.personalInformation[.zipCode] == nil || (visitor.personalInformation[.zipCode]) as? String == "" { throw RegistrationError.missingZipCode }
                 return true
             case .manager:
@@ -125,6 +128,7 @@ struct Visitor: SetUpVisitor {
                 if visitor.personalInformation[.streetAddress] == nil || (visitor.personalInformation[.streetAddress]) as? String == "" { throw RegistrationError.missingStreetAddress }
                 if visitor.personalInformation[.city] == nil || (visitor.personalInformation[.city]) as? String == "" { throw RegistrationError.missingCity }
                 if visitor.personalInformation[.state] == nil || (visitor.personalInformation[.state]) as? String == "" { throw RegistrationError.missingState }
+                if (!states.contains(visitor.personalInformation[.state] as? String ?? "")) { throw RegistrationError.incorrectStateName }
                 if visitor.personalInformation[.zipCode] == nil || (visitor.personalInformation[.zipCode]) as? String == "" { throw RegistrationError.missingZipCode }
                 return true
             case .season:
@@ -134,6 +138,7 @@ struct Visitor: SetUpVisitor {
                 if visitor.personalInformation[.streetAddress] == nil || (visitor.personalInformation[.streetAddress]) as? String == "" { throw RegistrationError.missingStreetAddress }
                 if visitor.personalInformation[.city] == nil || (visitor.personalInformation[.city]) as? String == "" { throw RegistrationError.missingCity }
                 if visitor.personalInformation[.state] == nil || (visitor.personalInformation[.state]) as? String == "" { throw RegistrationError.missingState }
+                if (!states.contains(visitor.personalInformation[.state] as? String ?? "")) { throw RegistrationError.incorrectStateName }
                 if visitor.personalInformation[.zipCode] == nil || (visitor.personalInformation[.zipCode]) as? String == "" { throw RegistrationError.missingZipCode }
                 return true
             case .senior:
@@ -154,6 +159,7 @@ struct Visitor: SetUpVisitor {
         catch RegistrationError.missingStreetAddress { print("Please enter in a street address.") }
         catch RegistrationError.missingCity { print("Please enter in a city.") }
         catch RegistrationError.missingState { print("Please enter in a state.") }
+        catch RegistrationError.incorrectStateName { print("Please enter in a correct state.") }
         catch RegistrationError.missingZipCode { print("Please enter in a zipcode.") }
         catch RegistrationError.missingSSN { print("Please enter in a social security number.") }
         catch RegistrationError.missingCompany { print("Please enter in a company name.")}

@@ -17,6 +17,7 @@
 		13B6ABCA21BB3C0D00BBB774 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B6ABC921BB3C0D00BBB774 /* Pass.swift */; };
 		13C1D06521D5A4B700A0F1D6 /* RandomVisitorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C1D06421D5A4B700A0F1D6 /* RandomVisitorData.swift */; };
 		13DB48E621D04857001DA1D9 /* EntrantPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13DB48E521D04857001DA1D9 /* EntrantPassViewController.swift */; };
+		13ECA8D621DBE37900832C54 /* DataValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13ECA8D521DBE37900832C54 /* DataValidation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		13B6ABC921BB3C0D00BBB774 /* Pass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
 		13C1D06421D5A4B700A0F1D6 /* RandomVisitorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomVisitorData.swift; sourceTree = "<group>"; };
 		13DB48E521D04857001DA1D9 /* EntrantPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EntrantPassViewController.swift; path = "Project-5/Controller/EntrantPassViewController.swift"; sourceTree = SOURCE_ROOT; };
+		13ECA8D521DBE37900832C54 /* DataValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataValidation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				13B6ABC721BB3B2E00BBB774 /* Visitor.swift */,
 				13B6ABC921BB3C0D00BBB774 /* Pass.swift */,
 				13C1D06421D5A4B700A0F1D6 /* RandomVisitorData.swift */,
+				13ECA8D521DBE37900832C54 /* DataValidation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13ECA8D621DBE37900832C54 /* DataValidation.swift in Sources */,
 				13B6ABCA21BB3C0D00BBB774 /* Pass.swift in Sources */,
 				13C1D06521D5A4B700A0F1D6 /* RandomVisitorData.swift in Sources */,
 				13DB48E621D04857001DA1D9 /* EntrantPassViewController.swift in Sources */,
