@@ -58,24 +58,18 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         datePicker.addTarget(self, action: #selector(ViewController.dateChanged(datePicker:)), for: .valueChanged)
         dateOfBirthtTextField.inputView = datePicker
         dateOfBirthtTextField.delegate = self
-        dateOfBirthtTextField.tag = 2
         
       
         let projectPicker = UIPickerView()
-        projectPicker.tag = 0
         projectPicker.delegate = self
         projectNumberTextField.inputView = projectPicker
         
         let companyPicker = UIPickerView()
-        companyPicker.tag = 1
         companyPicker.delegate = self
         companyTextField.inputView = companyPicker
         
         SSNTextField.delegate = self
-        SSNTextField.tag = 0
-        zipCodeTextField.delegate = self
-        zipCodeTextField.tag = 1
-        
+        zipCodeTextField.delegate = self        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -87,6 +81,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     }
     
+    // Define actions when user changes segmented controls.
     @IBAction func segmentedControllerTop(_ sender: Any) {
         entrantTypeIndex = entrantTypeSegmentedControl.selectedSegmentIndex
         setUpEntrantSubTypeSegmentedControl(entrantTypeIndex: entrantTypeIndex)
@@ -100,6 +95,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         clearAllRegistrationFields()
     }
     
+    // Validate entered data and, if all is correct, create pass and open Pass VC. If any errors are present, reset field and notify user.
     @IBAction func generatePassButton(_ sender: Any) {
         
         let entrantType: String = String(entrantTypeIndex) + String(entrantSubTypeIndex)
@@ -186,6 +182,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     }
     
+    // Populate all "enabled" fields with valid data.
     @IBAction func populateDataButton(_ sender: Any) {
         let entrantType: String = String(entrantTypeIndex) + String(entrantSubTypeIndex)
         
@@ -196,7 +193,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         case "02":
-            dateOfBirthtTextField.text = randomDOB.randomElement()
+            dateOfBirthtTextField.text = randomChildDOB.randomElement()
         case "03":
             dateOfBirthtTextField.text = randomDOB.randomElement()
             firstnameTextField.text = randomFirstName.randomElement()
@@ -239,6 +236,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     }
     
+    // Clear all text fields.
     func clearAllRegistrationFields() {
         dateOfBirthtTextField.text = ""
         newVisitor.personalInformation[.dateOfBirth] = ""
@@ -262,6 +260,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         newVisitor.personalInformation[.zipCode] = ""
     }
     
+    // Set up text fields based on entrant type.
     func setUpRegistrationFields() {
         let entrantType: String = String(entrantTypeIndex) + String(entrantSubTypeIndex)
         let backgroundColorEnabled = UIColor.init(red: 1, green: 1, blue: 1, alpha: 1)
@@ -420,6 +419,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
+    // Set up Entrant sub-category based on primary type.
     func setUpEntrantSubTypeSegmentedControl(entrantTypeIndex: Int) {
         switch entrantTypeIndex {
         case 0:
@@ -460,6 +460,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
+    // Verify registration form is complete and error free. Assign notification message if there are any issues.
     func checkRegistrationFormForCompleteness(entrantType: String) -> (errorTitle: String, errorMessage: String) {
         var errorTitle: String = "Error"
         var errorMessage: String = "Please recheck your entered information."
@@ -470,6 +471,23 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 errorTitle = "Missing Date Of Birth"
                 errorMessage = "Please enter a date of birth"
                 dateOfBirthtTextField.text = ""
+            } else if dateOfBirthtTextField.text != "" {
+                guard let date = dateOfBirthtTextField.text else {
+                    break
+                }
+                let dateFormat = "MM/dd/yyyy"
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = dateFormat
+                guard let birthDate = dateFormatter.date(from: date) else {
+                    break
+                }
+                guard let dateFiveYearsAgo = Calendar.current.date(byAdding: .year, value: -5, to: Date()) else {
+                    break
+                }
+                if birthDate < dateFiveYearsAgo {
+                    errorTitle = "Too Old"
+                    errorMessage = "You are too old for a free child pass."
+                }
             }
         case "03":
             if dateOfBirthtTextField.text == "" {
@@ -632,12 +650,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return (errorTitle, errorMessage)
     }
     
+    // Code to setting my picker views (project number and company).
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        if pickerView.tag == 0 {
+        if pickerView.tag == 2 {
             return projectNumbers.count
         } else {
             return companyNames.count
@@ -646,7 +665,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if pickerView.tag == 0 {
+        if pickerView.tag == 2 {
             return projectNumbers[row]
         } else {
             return companyNames[row]
@@ -654,15 +673,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView.tag == 0 {
+        if pickerView.tag == 2 {
             projectNumberTextField.text = projectNumbers[row]
         } else {
             companyTextField.text = companyNames[row]
         }
     }
     
+    // Code to limit character(s) input on select text fields.
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField.tag == 0 {
+        if textField.tag == 1 {
             while textField.text?.count ?? 0 <= 11  {
                 let allowedCharacters = "0123456789-"
                 let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
@@ -673,7 +693,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 return allowedCharacterSet.isSuperset(of: typedCharacterSet)
             }
             return false
-        } else if textField.tag == 1 {
+        } else if textField.tag == 9 {
             while textField.text?.count ?? 0 <= 5  {
                 let allowedCharacters = "0123456789"
                 let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
@@ -684,11 +704,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 return allowedCharacterSet.isSuperset(of: typedCharacterSet)
             }
             return false
+        } else if textField.tag == 0 || textField.tag == 2 {
+            return false
         } else {
-            let allowedCharacters = ""
-            let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)
-            let typedCharacterSet = CharacterSet(charactersIn: string)
-            return allowedCharacterSet.isSuperset(of: typedCharacterSet)
+            return true
         }
     }
     
@@ -696,6 +715,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         view.endEditing(true)
     }
     
+    // Code for setting my birthday field.
     @objc func dateChanged(datePicker: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"

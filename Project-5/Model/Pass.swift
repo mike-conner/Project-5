@@ -7,6 +7,9 @@
 //
 
 // List the different possible areas to access.
+
+import Foundation
+
 enum AreaAccess: String {
     case amusementArea = "Amusement Area"
     case kitchenArea = "Kitchen Area"
@@ -34,8 +37,14 @@ class Pass {
     var areaAccess: [AreaAccess] = []
     var rideAccess: [RideAccess] = []
     var discount: [Discount: Int] = [:]
-    
+    let date = Date()
+    let formatter = DateFormatter()
+    let datePassCreated: String
+
     init (visitor: Visitor) {
+        formatter.dateFormat = "MM/dd/yyyy"
+        datePassCreated = formatter.string(from: date)
+        
         if let firstName = visitor.personalInformation[.firstName], let lastName = visitor.personalInformation[.lastName] {
             entrantsName = "\(firstName) \(lastName)"
         }
@@ -144,14 +153,6 @@ class Pass {
         }
     }
 }
-
-
-// Define the "Swipe" function.
-// Function gets called when a visitor swipes their card when:
-// 1. trying to enter an "area" in the amusement park,
-// 2. seeing if they can ride one of the rides and/or if they can skip the lines,
-// 3. at a store to determine their discount.
-// Only required parameter is the pass, the other four parameters are optional and dependant on what they are trying to do.
 
 extension Pass {
     func swipeTheEntrants (pass: Pass, forAccessTo: AreaAccess? = nil, toSkipLines: Bool? = nil, getsDiscountOnFood: Discount? = nil, getsDiscountOnMerchandise: Discount? = nil) {

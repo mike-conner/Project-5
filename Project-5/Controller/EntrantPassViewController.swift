@@ -39,15 +39,15 @@ class EntrantPassViewController: UIViewController {
         } else if newVisitor.entrantType == .vendor {
             switch newVisitor.personalInformation[PersonalInformation.company] {
             case ("Acme" as String):
-                passType.text = "Vendor - Acme"
+                passType.text = "Vendor - Acme\rDate of visit: \(entrantPass.datePassCreated)"
             case ("Orkin" as String):
-                passType.text = "Vendor - Orkin"
+                passType.text = "Vendor - Orkin\rDate of visit: \(entrantPass.datePassCreated)"
             case ("Fedex" as String):
-                passType.text = "Vendor - Fedex"
+                passType.text = "Vendor - Fedex\rDate of visit: \(entrantPass.datePassCreated)"
             case ("NW Electrical" as String):
-                passType.text = "Vendor - NW Electrical"
+                passType.text = "Vendor - NW Electrical\rDate of visit: \(entrantPass.datePassCreated)"
             default:
-                passType.text = "Vendor - General"
+                passType.text = "Vendor - General\rDate of visit: \(entrantPass.datePassCreated)"
             }
         } else {
             passType.text = newVisitor.entrantType.rawValue
@@ -58,6 +58,7 @@ class EntrantPassViewController: UIViewController {
 
     }
     
+    // Testing area simulating an "Entrant" swipping their pass for access and/or information (ie, discount).
     @IBAction func amusementAreaTestButton(_ sender: Any) {
         if checkForAreaAccess(area: .amusementArea) == true {
             testResults.backgroundColor = UIColor.green
@@ -119,10 +120,12 @@ class EntrantPassViewController: UIViewController {
         }
     }
     
+    // Dismiss seque and start over creating a new pass.
     @IBAction func createNewPassButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
+    // Function that determines if user has access to a specific area. Called in each of the "test" IBActions above.
     func checkForAreaAccess(area: AreaAccess) -> Bool {
         for index in 0..<entrantPass.areaAccess.count {
             if area == entrantPass.areaAccess[index] { return true }

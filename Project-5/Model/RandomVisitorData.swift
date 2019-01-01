@@ -6,7 +6,8 @@
 //  Copyright © 2018 Mike Conner. All rights reserved.
 //
 
-let randomDOB: [String] = ["05/23/2015", "06/13/2018", "09/11/1963", "01/30/1980", "04/27/1994"]
+let randomChildDOB: [String] = ["05/23/2015", "06/13/2018", "04/27/2015", "04/24/2017", "01/23/2016"]
+let randomDOB: [String] = ["05/23/1992", "06/13/2008", "09/11/1963", "01/30/1980", "04/27/1987"]
 let randomSSN: [String] = ["111-11-1111", "222-22-2222", "333-33-3333", "444-44-4444", "555-55-5555"]
 let randomFirstName : [String] = ["Mike", "Bob", "Chuck", "Sally", "Karen"]
 let randomLastName : [String] = ["Smith", "Jackson", "Morris", "Thompson", "Lincoln"]
