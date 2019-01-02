@@ -69,7 +69,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         companyTextField.inputView = companyPicker
         
         SSNTextField.delegate = self
-        zipCodeTextField.delegate = self        
+        zipCodeTextField.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UITextField.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UITextField.keyboardWillHideNotification, object: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -721,5 +724,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         dateFormatter.dateFormat = "MM/dd/yyyy"
         
         dateOfBirthtTextField.text = dateFormatter.string(from: datePicker.date)
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+            guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+            view.frame.origin.y -= keyboardSize.height
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        view.frame.origin.y += keyboardSize.height
     }
 }
